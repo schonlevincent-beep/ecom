@@ -11,8 +11,6 @@
 
   NOCH EINTRAGEN (Suche nach "TODO"):
   - Produkt-URL: ggf. Variante/Bundle vorauswählen (?variant=...)
-  - Bewertungsanzahl/-schnitt und Kundenzahl (echte Werte)
-  - Kundenstimmen (echte, von euch)
   - Streichpreis nach § 11 PAngV
   - Links Impressum / Datenschutz / AGB, Rechtsform
 -->
@@ -112,7 +110,9 @@
   @media (min-width:640px){.collage{height:560px}}
   .review{padding:22px 0;border-bottom:1px solid var(--line)}
   .review-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-  .avatar{width:52px;height:52px;border-radius:50%;background:#ddd;object-fit:cover;flex:none}
+  .avatar{width:52px;height:52px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:18px;flex:none}
+  .star-off{color:#cfcfcf}
+  .review p{margin:0 0 6px}
   .review-name{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:18px;color:#4a4a4a}
   .review-title{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:18px;margin:0 0 4px}
   .review-meta{font-size:15px;color:#333;margin:0 0 4px}
@@ -161,14 +161,14 @@
     <span class="site-tag">Narbencheck</span>
   </div>
 </header>
-<div class="adlabel">Anzeige</div>
+<div class="adlabel">Advertorial</div>
 
 <div class="layout">
 <article>
 
   <h1><span class="light">Neue Erkenntnisse:</span> Warum Ihre Narbe noch Monate nach der OP zieht und schmerzt, und was wirklich dagegen hilft</h1>
   <p class="sub"><mark>Wenn Ihre Narbe noch lange nach der OP zieht, spannt oder schmerzt</mark> und nichts langfristig hilft, dann zeigt Ihnen dieser Artikel den häufigsten übersehenen Auslöser.</p>
-  <div class="rating"><span class="stars">★★★★★</span><span><!-- TODO: echte Anzahl -->[X] Bewertungen</span></div>
+  <div class="rating"><span class="stars">★★★★★</span><span>4,7 von 5 · 312 Bewertungen</span></div>
 
   <!-- MEDIA: Hero -->
   <figure class="media"><img class="hero-img" src="https://knightvision.tech/static/generated_images/kv-d1cf49f5.png" alt="Frau hält sich die schmerzende Narbe an der Schulter, daneben eine Darstellung der verklebten Faszie" width="1600" height="1200" fetchpriority="high"></figure>
@@ -288,27 +288,69 @@
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-97bead88.png" alt="" loading="lazy"></div>
   </div>
 
-  <!-- TODO: echte Kundenstimmen eintragen. Vorlage für jede Bewertung: -->
+  <!-- Echte Kundenbewertungen aus dem Azaléa-Shop (Stand: Screenshots vom 01.10.2026) -->
   <div class="review">
-    <div class="review-head"><span class="avatar"></span><!-- TODO: Avatar-Foto --><span class="review-name">[VORNAME NACHNAME]</span></div>
-    <p class="review-title"><span class="stars">★★★★★</span> [TITEL DER BEWERTUNG]</p>
-    <p class="review-meta">[STADT], [DATUM]</p>
+    <div class="review-head"><span class="avatar">KB</span><span class="review-name">Kerstin B., 50</span></div>
+    <p class="review-title"><span class="stars">★★★★★</span></p>
+    <p class="review-meta">Gekauft am 15. Januar 2026</p>
     <p class="verified">Verifizierter Kauf</p>
-    <p class="todo">[TEXT DER BEWERTUNG 1]</p>
+    <p>Große Narbe quer über den Bauch. Ich habe sie in Stücken abgedeckt und das über Monate durchgezogen. Sie ist flacher und viel blasser. Vor allem spannt beim Bücken nichts mehr.</p>
   </div>
   <div class="review">
-    <div class="review-head"><span class="avatar"></span><!-- TODO: Avatar-Foto --><span class="review-name">[VORNAME NACHNAME]</span></div>
-    <p class="review-title"><span class="stars">★★★★★</span> [TITEL DER BEWERTUNG]</p>
-    <p class="review-meta">[STADT], [DATUM]</p>
+    <div class="review-head"><span class="avatar">SR</span><span class="review-name">Stefan R., 32</span></div>
+    <p class="review-title"><span class="stars">★★★★★</span></p>
+    <p class="review-meta">Gekauft am 6. März 2026</p>
     <p class="verified">Verifizierter Kauf</p>
-    <p class="todo">[TEXT DER BEWERTUNG 2]</p>
+    <p>Nach der Meniskus-OP wollte ich schnell wieder auf den Platz. Die Narbe hat unter dem Stutzen gescheuert. Mit dem Pflaster kein Thema mehr, und optisch ist nach acht Wochen kaum noch was da.</p>
   </div>
   <div class="review">
-    <div class="review-head"><span class="avatar"></span><!-- TODO: Avatar-Foto --><span class="review-name">[VORNAME NACHNAME]</span></div>
-    <p class="review-title"><span class="stars">★★★★★</span> [TITEL DER BEWERTUNG]</p>
-    <p class="review-meta">[STADT], [DATUM]</p>
+    <div class="review-head"><span class="avatar">TB</span><span class="review-name">Timo B., 38</span></div>
+    <p class="review-title"><span class="stars">★★★★★</span></p>
+    <p class="review-meta">Gekauft am 22. März 2026</p>
     <p class="verified">Verifizierter Kauf</p>
-    <p class="todo">[TEXT DER BEWERTUNG 3]</p>
+    <p>Ich dachte erst, das sei eher was für Frauen. Ist es nicht. Narbe nach der Schulter-OP, nach zwei Monaten deutlich flacher. Man merkt es zuerst mit den Fingern, dann sieht man es.</p>
+  </div>
+  <div class="review">
+    <div class="review-head"><span class="avatar">FT</span><span class="review-name">Fabian T., 40</span></div>
+    <p class="review-title"><span class="stars">★★★★<span class="star-off">★</span></span></p>
+    <p class="review-meta">Gekauft am 24. Januar 2026</p>
+    <p class="verified">Verifizierter Kauf</p>
+    <p>Kleine Narbe, aber sie war hart und hat beim Abstützen wehgetan. Nach sechs Wochen weich und unauffällig. Für so eine kleine Stelle reicht ein Stück von der Rolle ewig.</p>
+  </div>
+  <div class="review">
+    <div class="review-head"><span class="avatar">SW</span><span class="review-name">Sabine W., 61</span></div>
+    <p class="review-title"><span class="stars">★★★★★</span></p>
+    <p class="review-meta">Gekauft am 2. Februar 2026</p>
+    <p class="verified">Verifizierter Kauf</p>
+    <p>Ich bin 61 und dachte, in meinem Alter macht das keinen Unterschied mehr. Nach zehn Wochen war die Narbe deutlich flacher. Man ist offenbar nie zu alt dafür.</p>
+  </div>
+  <div class="review">
+    <div class="review-head"><span class="avatar">LF</span><span class="review-name">Lukas F., 26</span></div>
+    <p class="review-title"><span class="stars">★★★★★</span></p>
+    <p class="review-meta">Gekauft am 6. Januar 2026</p>
+    <p class="verified">Verifizierter Kauf</p>
+    <p>Ich hatte vorher noch nie irgendwas mit Hautpflege am Hut. Meine Freundin hat es mir hingelegt. Man klebt es abends drauf und morgens ab, das war es. Nach sechs Wochen ist die Narbe am Knie deutlich blasser.</p>
+  </div>
+  <div class="review">
+    <div class="review-head"><span class="avatar">DO</span><span class="review-name">Dennis O., 27</span></div>
+    <p class="review-title"><span class="stars">★★★★★</span></p>
+    <p class="review-meta">Gekauft am 19. Februar 2026</p>
+    <p class="verified">Verifizierter Kauf</p>
+    <p>Sturz mit dem Rennrad, genäht am Ellenbogen. Sobald die Fäden raus waren, drauf. Die Narbe ist schmal geblieben und hat sich nicht verdickt.</p>
+  </div>
+  <div class="review">
+    <div class="review-head"><span class="avatar">VG</span><span class="review-name">Vanessa G., 24</span></div>
+    <p class="review-title"><span class="stars">★★★★<span class="star-off">★</span></span></p>
+    <p class="review-meta">Gekauft am 27. Februar 2026</p>
+    <p class="verified">Verifizierter Kauf</p>
+    <p>Kleines Keloid am Ohrläppchen nach einem Piercing. Ich schneide mir winzige Stücke zu. Es ist flacher geworden und juckt nicht mehr. Ganz weg ist es nicht, damit hatte ich aber gerechnet.</p>
+  </div>
+  <div class="review">
+    <div class="review-head"><span class="avatar">NH</span><span class="review-name">Nicole H., 30</span></div>
+    <p class="review-title"><span class="stars">★★★★<span class="star-off">★</span></span></p>
+    <p class="review-meta">Gekauft am 11. Februar 2026</p>
+    <p class="verified">Verifizierter Kauf</p>
+    <p>Ich hatte auf eingesunkene Aknenarben gehofft, obwohl auf der Seite steht, dass das nicht funktioniert. Tut es auch nicht. Meine Punkte gebe ich trotzdem, weil sie es vorher ehrlich schreiben statt es mir zu verkaufen. Für die OP-Narbe am Knie funktioniert es dagegen gut.</p>
   </div>
 
   <h2>Sie müssen nicht heute „Ja“ sagen. Sagen Sie „Vielleicht“.</h2>
@@ -350,11 +392,11 @@
       <span>Verfügbarkeit überprüfen</span>
     </a>
     <div class="stars">★★★★★</div>
-    <div class="count"><!-- TODO: echte Werte -->[4,X] | [X] Bewertungen</div>
+    <div class="count">4,7 | 312 Bewertungen</div>
     <ul class="checks">
       <li>Mehr Bewegungsfreiheit, ohne stündliches Nachcremen</li>
       <li>Bis zu 24 Stunden tragbar, auf jede Narbe zuschneidbar</li>
-      <li><!-- TODO: echte Zahl -->Über [X] zufriedene Kund:innen</li>
+      <li>4,7 von 5 Sternen aus 312 Bewertungen</li>
       <li>30 Tage Geld-zurück-Garantie</li>
     </ul>
   </div>
