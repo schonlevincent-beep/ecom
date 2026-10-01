@@ -10,7 +10,7 @@
   KI-Bilder liegen bei Knightvision und laufen nach 45 Tagen ab -> vorher in Shopify > Inhalte > Dateien hochladen und URLs tauschen.
 
   NOCH EINTRAGEN (Suche nach "TODO"):
-  - [PRODUKT-URL]  -> PDP mit 2+1-Bundle vorausgewählt
+  - Produkt-URL: ggf. Variante/Bundle vorauswählen (?variant=...)
   - Bewertungsanzahl/-schnitt und Kundenzahl (echte Werte)
   - Kundenstimmen (echte, von euch)
   - Streichpreis nach § 11 PAngV
@@ -46,6 +46,11 @@
   img,video{max-width:100%;height:auto;display:block}
   a{color:var(--brand)}
   .topline{height:6px;background:var(--cta)}
+  .site{border-bottom:1px solid var(--line);background:#fff}
+  .site-inner{max-width:1240px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .site-logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:22px;letter-spacing:-.01em}
+  .site-logo b{font-weight:800;color:var(--brand)}
+  .site-tag{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--brand);padding:6px 10px;border-radius:4px}
   .adlabel{font-size:12px;color:var(--muted);text-align:center;padding:6px 16px;background:#fafafa;border-bottom:1px solid var(--line)}
 
   .layout{max-width:1240px;margin:0 auto;padding:24px 16px 0;display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
@@ -150,6 +155,12 @@
 </head>
 <body>
 <div class="topline"></div>
+<header class="site">
+  <div class="site-inner">
+    <a class="site-logo" href="#"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path fill="var(--brand)" d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2.1 0 3.6 1.1 4.4 2.5.8-1.4 2.3-2.5 4.4-2.5 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21z"/><path d="M8 12h2.2l1.2-2.4 1.8 4.6 1.2-2.2H16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Gesundheits<b>helfer</b></span></a>
+    <span class="site-tag">Narbencheck</span>
+  </div>
+</header>
 <div class="adlabel">Anzeige</div>
 
 <div class="layout">
@@ -194,8 +205,8 @@
 
   <!-- MEDIA: Animationsvideo (Knightvision-Job kv-1b7e331b). Wenn fertig: <img> durch <video src="VIDEO-URL" autoplay muted loop playsinline></video> ersetzen -->
   <figure class="media">
-    <video src="https://knightvision.tech/static/generated_videos/kv-1b7e331b.mp4" poster="https://knightvision.tech/static/generated_images/kv-058baf2f.png" autoplay muted loop playsinline preload="metadata" width="1280" height="720" aria-label="Animation: Faszie verklebt mit der Narbe und löst sich unter dem Silikonpflaster"></video>
-    <figcaption>Links: Narbe und Faszie sind verklebt. Rechts: Die Faszie gleitet frei unter der Narbe. (Schematische Darstellung)</figcaption>
+    <video src="https://knightvision.tech/static/generated_videos/kv-2acb9c1f.mp4" poster="https://knightvision.tech/static/generated_images/kv-52870bf4.png" autoplay muted loop playsinline preload="metadata" width="1280" height="720" aria-label="Animation: Faszie verklebt mit der Narbe und löst sich unter dem Silikonpflaster"></video>
+    <figcaption>Das Silikonpflaster liegt nur auf der Hautoberfläche. Die gleichmäßige Feuchtigkeit lässt das Narbengewebe entspannen, die Faszie kann wieder gleiten. (Schematische Animation)</figcaption>
   </figure>
 
   <p>Wenn Sie die Narbe nur stundenweise eincremen und es dazwischen öfter vergessen, kann sich das Gewebe rund um die Narbe nicht gleichmäßig anpassen.</p>
@@ -250,7 +261,7 @@
   <h2>Sie sind kinderleicht anzuwenden.</h2>
 
   <!-- MEDIA: Schritt 1 (Bild oder Video) -->
-  <figure class="media"><img src="https://knightvision.tech/static/generated_images/kv-cd310c50.png" alt="Ein Stück wird mit der Schere von der Narbenpflaster-Rolle abgeschnitten" width="1600" height="1200" loading="lazy"></figure>
+  <figure class="media"><img src="https://knightvision.tech/static/generated_images/kv-fa725f75.png" alt="Ein Stück wird mit der Schere von der Narbenpflaster-Rolle abgeschnitten" width="1600" height="1200" loading="lazy"></figure>
   <p class="step"><u>Schritt 1</u>: Passend zuschneiden</p>
   <p>Schneiden Sie ein Stück von der Rolle ab, das die Narbe rundherum etwa 1 cm überdeckt.</p>
 
@@ -260,7 +271,7 @@
   <p>Haut vorher waschen und gut trocknen lassen, dann die Schutzfolie abziehen.</p>
 
   <!-- MEDIA: Schritt 3 (Bild oder Video) -->
-  <figure class="media"><img src="https://knightvision.tech/static/generated_images/kv-00171e19.png" alt="Silikonpflaster wird auf eine Kaiserschnittnarbe geklebt" width="1600" height="1200" loading="lazy"></figure>
+  <figure class="media"><img src="https://knightvision.tech/static/generated_images/kv-e29c10fc.png" alt="Silikonpflaster wird auf eine Kaiserschnittnarbe geklebt" width="1600" height="1200" loading="lazy"></figure>
   <p class="step"><u>Schritt 3</u>: Aufkleben und tragen</p>
   <p>Glatt andrücken und bis zu 24 Stunden tragen. Einmal täglich abnehmen, Pflaster und Haut waschen, wieder aufkleben. Das Pflaster ist wiederverwendbar.</p>
 
@@ -270,11 +281,11 @@
   <!-- MEDIA: Collage (6 Fotos). Ideal: echte Kundenfotos mit Einverständnis einsetzen -->
   <div class="collage">
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-00cdab34.png" alt="" loading="lazy"></div>
-    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-59362fa3.png" alt="" loading="lazy"></div>
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-2fd45994.png" alt="" loading="lazy"></div>
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-c01a06fc.png" alt="" loading="lazy"></div>
-    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-11923715.png" alt="" loading="lazy"></div>
-    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-2b10621c.png" alt="" loading="lazy"></div>
-    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-627755a8.png" alt="" loading="lazy"></div>
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-05de1855.png" alt="" loading="lazy"></div>
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-a6c2bf94.png" alt="" loading="lazy"></div>
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-97bead88.png" alt="" loading="lazy"></div>
   </div>
 
   <!-- TODO: echte Kundenstimmen eintragen. Vorlage für jede Bewertung: -->
@@ -327,14 +338,14 @@
   <p>Und mit dem 2+1-Angebot <strong>bekommen Sie die dritte Rolle gratis</strong>.</p>
   <p><strong>Dann nutzen Sie jetzt diese Aktion</strong> und klicken Sie unten auf die Schaltfläche, um sich Ihre Narbenpflaster zu sichern.</p>
 
-  <a class="btn btn-wide" href="[PRODUKT-URL]" data-track="cta-bottom">Rabatt anwenden &amp;<br>Verfügbarkeit prüfen</a>
+  <a class="btn btn-wide" href="https://www.shop-azalea.de/products/azalea-silicone-scar-sheets" data-track="cta-bottom">Rabatt anwenden &amp;<br>Verfügbarkeit prüfen</a>
 </article>
 
 <aside>
   <div class="side">
     <p class="side-title">Endlich spürbar weniger Ziehen an der Narbe*</p>
     <img src="img/produkt-rolle.png" alt="Azaléa Silikon-Narbenpflaster Rolle" width="1080" height="1080">
-    <a class="btn" href="[PRODUKT-URL]" data-track="cta-sidebar">
+    <a class="btn" href="https://www.shop-azalea.de/products/azalea-silicone-scar-sheets" data-track="cta-sidebar">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M3 9h9V4l9 8-9 8v-5H3z"/></svg>
       <span>Verfügbarkeit überprüfen</span>
     </a>
@@ -352,7 +363,7 @@
 
 <div class="mbar" id="mbar">
   <img src="img/produkt-rolle.png" alt="">
-  <a class="btn" href="[PRODUKT-URL]" data-track="cta-mobile-bar">Verfügbarkeit prüfen</a>
+  <a class="btn" href="https://www.shop-azalea.de/products/azalea-silicone-scar-sheets" data-track="cta-mobile-bar">Verfügbarkeit prüfen</a>
 </div>
 
 <footer>
