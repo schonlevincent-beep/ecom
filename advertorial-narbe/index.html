@@ -67,7 +67,7 @@
   .media{margin:0 0 26px}
   .media img,.media video{width:100%;border-radius:10px}
   .vwrap{position:relative}
-  .vbadge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.6);color:#fff;font:700 13px/1 Montserrat,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:4px;opacity:0;transition:opacity .3s}
+  .vbadge{position:absolute;top:10px;left:10px;right:10px;width:max-content;max-width:calc(100% - 20px);background:rgba(0,0,0,.65);color:#fff;font:700 13px/1.3 Montserrat,Arial,sans-serif;padding:7px 10px;border-radius:4px;opacity:0;transition:opacity .3s}
   .vbadge.on{opacity:1}
   .media.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .media.duo img{aspect-ratio:3/4;object-fit:cover}
@@ -208,12 +208,16 @@
 
   <!-- MEDIA: Animationsvideo (Knightvision-Job kv-1b7e331b). Wenn fertig: <img> durch <video src="VIDEO-URL" autoplay muted loop playsinline></video> ersetzen -->
   <figure class="media">
-    <!-- Zwei Clips laufen nacheinander in Schleife: 1) Pflaster + Feuchtigkeit, 2) Zeitraffer der Narbe -->
+    <!-- Drei Clips laufen nacheinander in Schleife, jeder mit eigener Einblendung:
+         1) Pflaster wird aufgelegt  2) Feuchtigkeit zieht ein  3) Zeitraffer der Narbe -->
     <div class="vwrap">
-      <video id="mechVideo" src="https://knightvision.tech/static/generated_videos/kv-edf8684b.mp4" poster="https://knightvision.tech/static/generated_images/kv-52870bf4.png" data-playlist="https://knightvision.tech/static/generated_videos/kv-edf8684b.mp4|https://knightvision.tech/static/generated_videos/kv-dbdbbc5d.mp4" autoplay muted playsinline preload="auto" width="1280" height="720" aria-label="Animation: Silikonpflaster auf der Narbe, danach Zeitraffer, wie sich die Narbe glättet und die Faszie löst"></video>
-      <span class="vbadge" id="mechBadge">Zeitraffer</span>
+      <video id="mechVideo" src="https://knightvision.tech/static/generated_videos/kv-a9af2152.mp4" poster="https://knightvision.tech/static/generated_images/kv-c74020b1.png"
+        data-playlist="https://knightvision.tech/static/generated_videos/kv-a9af2152.mp4|https://knightvision.tech/static/generated_videos/kv-facc87e9.mp4|https://knightvision.tech/static/generated_videos/kv-0a246cab.mp4"
+        data-labels="1 · Pflaster aufkleben|2 · Feuchtigkeit hält die Narbe geschmeidig|3 · Zeitraffer: Die Narbe wird weicher und flacher"
+        autoplay muted playsinline preload="auto" width="1280" height="720" aria-label="Animation in drei Schritten: Silikonpflaster wird aufgeklebt, Feuchtigkeit zieht in die Narbe ein, im Zeitraffer wird die Narbe flacher und die Faszie löst sich"></video>
+      <span class="vbadge on" id="mechBadge">1 · Pflaster aufkleben</span>
     </div>
-    <figcaption>Das Silikonpflaster liegt nur auf der Hautoberfläche. Die gleichmäßige Feuchtigkeit lässt das Narbengewebe entspannen. Im Zeitraffer: Die Narbe wird weicher und flacher, die Faszie kann wieder gleiten. (Schematische Animation)</figcaption>
+    <figcaption>Das Silikonpflaster liegt nur auf der Hautoberfläche. Darunter bleibt die Narbe gleichmäßig feucht und geschmeidig. Im Zeitraffer: Die Narbe wird weicher und flacher, die Faszie kann wieder gleiten. (Schematische Animation)</figcaption>
   </figure>
 
   <p>Wenn Sie die Narbe nur stundenweise eincremen und es dazwischen öfter vergessen, kann sich das Gewebe rund um die Narbe nicht gleichmäßig anpassen.</p>
@@ -440,18 +444,15 @@
 (function(){
   var v=document.getElementById('mechVideo'),b=document.getElementById('mechBadge');
   if(!v)return;
-  var list=v.dataset.playlist.split('|'),i=0;
-  v.addEventListener('ended',function(){
-    i=(i+1)%list.length;
-    v.src=list[i];
-    b.classList.toggle('on',i===1);
-    v.play().catch(function(){});
-  });
-  v.addEventListener('error',function(){
-    if(i===0)return;
-    i=0;list=[list[0]];v.loop=true;b.classList.remove('on');
-    v.src=list[0];v.play().catch(function(){});
-  });
+  var list=v.dataset.playlist.split('|'),labels=v.dataset.labels.split('|'),bad={},i=0;
+  function go(n){
+    for(var k=0;k<list.length;k++){
+      var j=(n+k)%list.length;
+      if(!bad[j]){i=j;v.src=list[i];b.textContent=labels[i];v.play().catch(function(){});return;}
+    }
+  }
+  v.addEventListener('ended',function(){go(i+1);});
+  v.addEventListener('error',function(){bad[i]=true;go(i+1);});
 })();
 </script>
 </body>
