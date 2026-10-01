@@ -1,347 +1,378 @@
 <!DOCTYPE html>
 <!--
   Azaléa – Advertorial "Faszienverklebung unter der Narbe" (zur Ad Creative 84)
-  Ad: https://www.facebook.com/ads/library/?id=1583362246407252
-  Angle: Schmerz scheint von der Narbe zu kommen, stammt aber aus einer übersehenen Faszienverklebung (unterbrochene Okklusion).
-  Awareness: MOF -> Solution Aware
+  Aufbau nach Vorlage orthotal.com/pages/adv-isg-blockade-2-a (Screenshots), in Azaléa-Farben.
 
-  ZU ERSETZEN / ZU PRÜFEN (alle Stellen mit "TODO" im Quelltext):
-  - Bilder: liegen aktuell bei Knightvision (Ablauf nach 45 Tagen) -> in Shopify Files hochladen und URLs tauschen
-  - [PRODUKTBILD AZALÉA NARBENPFLASTER-ROLLE] -> echtes Produktfoto
-  - [PRODUKT-URL] -> Link zur PDP mit 2+1-Bundle vorausgewählt
-  - Streichpreis: niedrigster Gesamtpreis der letzten 30 Tage (§ 11 PAngV)
-  - Kundenstimmen: NUR echte, dokumentierte Stimmen mit Einverständnis
-  - Quelle "24 Dermatolog:innen" gegen das Original prüfen (Mustoe et al. 2002)
-  - Impressum / Datenschutz / Widerruf verlinken
+  BILDER / VIDEOS AUSTAUSCHEN:
+  Jede austauschbare Stelle ist mit einem Kommentar "MEDIA:" markiert.
+  - Bild: src="" ersetzen.
+  - Video statt Bild: das img-Tag durch ein video-Tag ersetzen (autoplay muted loop playsinline).
+  KI-Bilder liegen bei Knightvision und laufen nach 45 Tagen ab -> vorher in Shopify > Inhalte > Dateien hochladen und URLs tauschen.
+
+  NOCH EINTRAGEN (Suche nach "TODO"):
+  - [PRODUKT-URL]  -> PDP mit 2+1-Bundle vorausgewählt
+  - Bewertungsanzahl/-schnitt und Kundenzahl (echte Werte)
+  - Kundenstimmen (echte, von euch)
+  - Streichpreis nach § 11 PAngV
+  - Links Impressum / Datenschutz / AGB, Rechtsform
 -->
 <html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Warum Ihre Narbe nicht aufhört zu schmerzen</title>
-<meta name="description" content="Wenn eine Narbe nach Monaten noch zieht und schmerzt, liegt die Ursache oft nicht in der Narbe selbst, sondern eine Schicht tiefer.">
+<title>Warum Ihre Narbe nach Monaten noch schmerzt</title>
+<meta name="description" content="Wenn die Narbe Monate nach der OP noch zieht und spannt, liegt der Auslöser oft eine Schicht tiefer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#ffffff; --text:#1f2328; --muted:#6b7280; --line:#e5e7eb;
-    --accent:#0f6e5c; --accent-dark:#0b5446; --accent-soft:#e8f3f0;
-    --warn:#b42318; --highlight:#fff3c4; --cta:#1a9b4b; --cta-dark:#13803c;
-    --star:#f5a623;
+    /* Azaléa-Farben: hier zentral anpassen */
+    --cta:#d4572a;        /* Button (Vorlage: Orange) */
+    --cta-dark:#b2441d;
+    --brand:#c2507a;      /* Azaléa-Akzent: Sidebar-Titel, Links */
+    --text:#1b1b1b;
+    --muted:#5f6368;
+    --line:#e3e3e3;
+    --panel:#f7f7f7;
+    --star:#f6a823;
+    --check:#2ebd59;
+    --hl:#ffc93c;
+    --footer:#161616;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--text);font-family:Merriweather,Georgia,serif;font-size:18px;line-height:1.7}
-  img{max-width:100%;height:auto;display:block}
-  a{color:var(--accent)}
-  .wrap{max-width:720px;margin:0 auto;padding:0 16px}
+  body{margin:0;background:#fff;color:var(--text);font-family:"Open Sans",Arial,sans-serif;font-size:18px;line-height:1.6}
+  img,video{max-width:100%;height:auto;display:block}
+  a{color:var(--brand)}
+  .topline{height:6px;background:var(--cta)}
+  .adlabel{font-size:12px;color:var(--muted);text-align:center;padding:6px 16px;background:#fafafa;border-bottom:1px solid var(--line)}
 
-  /* Kopf */
-  .adbar{background:#f3f4f6;color:var(--muted);font:600 11px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:7px 16px}
-  .masthead{border-bottom:1px solid var(--line)}
-  .masthead .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-  .logo{font:800 20px/1 Inter,sans-serif;letter-spacing:-.02em;color:var(--text);text-decoration:none}
-  .logo span{color:var(--accent)}
-  .nav{font:500 13px/1 Inter,sans-serif;color:var(--muted)}
-  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:50}
+  .layout{max-width:1240px;margin:0 auto;padding:24px 16px 0;display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
+  @media (min-width:1000px){.layout{grid-template-columns:minmax(0,1fr) 340px;padding-top:40px}}
 
-  /* Artikelkopf */
-  .kicker{font:700 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:28px 0 12px}
-  h1{font:800 30px/1.22 Inter,sans-serif;letter-spacing:-.02em;margin:0 0 14px}
-  .dek{font:400 19px/1.55 Inter,sans-serif;color:#374151;margin:0 0 20px}
-  .byline{display:flex;align-items:center;gap:12px;font:400 14px/1.4 Inter,sans-serif;color:var(--muted);padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
-  .byline .avatar{width:44px;height:44px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);font:700 15px Inter,sans-serif;flex:none}
-  .byline strong{color:var(--text);font-weight:600}
-
-  /* Text */
+  /* Artikel */
+  h1{font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:28px;line-height:1.2;margin:0 0 16px;letter-spacing:-.01em}
+  h1 .light{font-weight:400}
+  .sub{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:17px;line-height:1.45;margin:0 0 14px}
+  .sub mark{background:var(--hl);color:inherit;padding:0 2px}
+  .rating{display:flex;align-items:center;gap:6px;font-size:15px;margin-bottom:18px}
+  .stars{color:var(--star);letter-spacing:1px;white-space:nowrap}
+  h2{font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:26px;line-height:1.22;margin:44px 0 20px;letter-spacing:-.01em}
   article p{margin:0 0 20px}
-  article h2{font:800 24px/1.3 Inter,sans-serif;letter-spacing:-.01em;margin:40px 0 16px}
-  article h3{font:700 20px/1.35 Inter,sans-serif;margin:28px 0 12px}
-  .lead::first-letter{float:left;font:800 58px/.9 Inter,sans-serif;margin:6px 10px 0 0;color:var(--accent)}
-  mark{background:linear-gradient(transparent 55%,var(--highlight) 55%);color:inherit;padding:0 2px}
-  .single{font-weight:700;font-size:20px}
-  figure{margin:24px 0 28px}
-  figure img{border-radius:6px;width:100%}
-  figcaption{font:400 13px/1.45 Inter,sans-serif;color:var(--muted);margin-top:8px}
+  .lead-bold{font-weight:700}
+  .media{margin:0 0 26px}
+  .media img,.media video{width:100%;border-radius:10px}
+  .media.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .media.duo img{aspect-ratio:3/4;object-fit:cover}
+  .media figcaption,.caption{font-size:13px;color:var(--muted);margin-top:6px}
+  .hero-img{aspect-ratio:4/3;object-fit:cover}
 
-  blockquote{margin:26px 0;padding:4px 0 4px 18px;border-left:4px solid var(--accent);font-style:italic;font-size:20px;line-height:1.55;color:#111827}
+  ul.checks{list-style:none;padding:0;margin:0 0 22px}
+  ul.checks li{position:relative;padding-left:34px;margin-bottom:12px}
+  ul.checks li::before{content:"";position:absolute;left:0;top:4px;width:22px;height:22px;border-radius:50%;background:var(--check) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/13px no-repeat}
+  ul.crosses li::before{background:#d93025 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") center/11px no-repeat}
+  .box{background:var(--panel);border-radius:10px;padding:20px 20px 4px;margin:0 0 26px}
+  .box-title{font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:18px;margin:0 0 14px}
 
-  .box{background:var(--accent-soft);border-radius:8px;padding:20px 20px 6px;margin:28px 0}
-  .box h4{font:700 15px/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-dark);margin:0 0 12px}
-  .checks{list-style:none;padding:0;margin:0 0 14px}
-  .checks li{position:relative;padding-left:34px;margin-bottom:12px}
-  .checks li::before{content:"";position:absolute;left:0;top:5px;width:22px;height:22px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/14px no-repeat}
-  .xs li::before{background:var(--warn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") center/12px no-repeat}
-  .warnbox{background:#fef3f2;border-left:4px solid var(--warn)}
-  .warnbox h4{color:var(--warn)}
+  .step{font-size:20px;font-weight:700;margin:0 0 6px}
+  .step u{text-underline-offset:3px}
+  .step + p{margin-bottom:30px}
 
-  .steps{counter-reset:s;list-style:none;padding:0;margin:0 0 20px}
-  .steps li{counter-increment:s;position:relative;padding:0 0 18px 52px}
-  .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font:800 16px/36px Inter,sans-serif;text-align:center}
-  .steps strong{display:block;font-family:Inter,sans-serif}
+  .source{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
 
-  .source{font:400 13px/1.5 Inter,sans-serif;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:-6px}
+  /* Buttons */
+  .btn{display:flex;align-items:center;justify-content:center;gap:14px;width:100%;background:var(--cta);color:#fff;text-decoration:none;font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:20px;line-height:1.3;letter-spacing:.02em;text-align:center;padding:18px 20px;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .btn:hover{background:var(--cta-dark)}
+  .btn svg{flex:none}
+  .btn-wide{margin:10px 0 36px}
 
-  /* Inline-CTA */
-  .cta{display:block;width:100%;text-align:center;background:var(--cta);color:#fff;text-decoration:none;font:800 18px/1.25 Inter,sans-serif;padding:18px 16px;border-radius:8px;box-shadow:0 4px 0 var(--cta-dark);margin:8px 0 10px}
-  .cta:hover{background:var(--cta-dark)}
-  .cta small{display:block;font-weight:500;font-size:13px;opacity:.9;margin-top:4px}
-  .cta-note{font:400 13px/1.4 Inter,sans-serif;color:var(--muted);text-align:center;margin:0 0 24px}
+  /* Garantie */
+  .guarantee{position:relative;border-radius:10px;overflow:hidden;margin:0 0 22px}
+  .guarantee img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .seal{position:absolute;left:5%;top:50%;transform:translateY(-50%);width:42%;max-width:300px}
 
-  /* Kundenstimmen */
-  .review{border:1px solid var(--line);border-radius:8px;padding:18px;margin:0 0 14px;font-family:Inter,sans-serif;font-size:16px;line-height:1.55}
-  .review .stars{color:var(--star);letter-spacing:2px;font-size:15px}
-  .review .who{font-size:14px;color:var(--muted);margin-top:8px}
-  .review .ph{background:#f9fafb;border:1px dashed #cbd5e1;border-radius:6px;padding:14px;color:var(--muted);font-size:14px}
+  /* Bewertungen */
+  .stars-big{display:flex;justify-content:center;align-items:flex-end;gap:6px;color:var(--star);margin:10px 0 8px}
+  .stars-big span{line-height:1}
+  .collage{position:relative;height:430px;max-width:640px;margin:0 auto 34px}
+  .pol{position:absolute;width:42%;background:#fff;padding:8px 8px 26px;box-shadow:0 6px 18px rgba(0,0,0,.18);border:1px solid #eee}
+  .pol img{width:100%;aspect-ratio:1/1;object-fit:cover}
+  .pol:nth-child(1){left:2%;top:4%;transform:rotate(-6deg)}
+  .pol:nth-child(2){left:30%;top:0;transform:rotate(3deg);z-index:2}
+  .pol:nth-child(3){right:2%;top:6%;transform:rotate(7deg)}
+  .pol:nth-child(4){left:6%;top:46%;transform:rotate(5deg);z-index:3}
+  .pol:nth-child(5){left:33%;top:42%;transform:rotate(-4deg);z-index:4}
+  .pol:nth-child(6){right:0;top:48%;transform:rotate(-8deg);z-index:3}
+  @media (min-width:640px){.collage{height:560px}}
+  .review{padding:22px 0;border-bottom:1px solid var(--line)}
+  .review-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .avatar{width:52px;height:52px;border-radius:50%;background:#ddd;object-fit:cover;flex:none}
+  .review-name{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:18px;color:#4a4a4a}
+  .review-title{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:18px;margin:0 0 4px}
+  .review-meta{font-size:15px;color:#333;margin:0 0 4px}
+  .verified{font-family:Montserrat,Arial,sans-serif;font-weight:700;color:var(--cta);font-size:16px;margin:0 0 8px}
+  .todo{background:#fff8e1;border:1px dashed #e0b400;border-radius:8px;padding:12px 14px;font-size:14px;color:#6b5300}
 
-  /* Angebot */
-  .offer{border:2px solid var(--accent);border-radius:12px;padding:22px 18px;margin:36px 0;font-family:Inter,sans-serif;background:#fff}
-  .offer .tag{display:inline-block;background:var(--warn);color:#fff;font:800 12px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:4px;margin-bottom:12px}
-  .offer h2{margin:0 0 6px;font-size:24px}
-  .offer .sub{color:#374151;margin:0 0 16px;font-size:16px}
-  .prodph{aspect-ratio:1/1;background:#f9fafb;border:2px dashed #cbd5e1;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:14px;padding:20px;margin-bottom:16px}
-  .price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:6px 0 4px}
-  .price .now{font-size:32px;font-weight:800}
-  .price .was{color:var(--muted);text-decoration:line-through;font-size:18px}
-  .price .save{background:var(--accent-soft);color:var(--accent-dark);font-weight:700;font-size:14px;padding:4px 8px;border-radius:4px}
-  .offer ul.checks{font-size:16px;margin-top:14px}
-  .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 0;font-size:12px;line-height:1.3;text-align:center;color:#374151}
-  .trust div{background:#f9fafb;border-radius:6px;padding:10px 6px}
-  .trust b{display:block;font-size:18px;margin-bottom:2px}
-  .legal{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.5}
+  /* Sidebar */
+  aside{display:none}
+  @media (min-width:1000px){aside{display:block}}
+  .side{position:sticky;top:24px;border:1px solid #d9d9d9;border-radius:6px;background:var(--panel);padding:26px 26px 22px;text-align:center}
+  .side-title{font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:21px;line-height:1.3;color:var(--brand);margin:0 0 14px}
+  .side img{width:110%;max-width:none;margin:-14px -5% 6px;mix-blend-mode:multiply}
+  .side .btn{font-size:18px;padding:16px 18px}
+  .side .stars{font-size:20px;margin:18px 0 4px}
+  .side .count{font-size:16px;margin-bottom:16px}
+  .side ul.checks{text-align:left;font-size:16px;line-height:1.45}
+  .side ul.checks li::before{width:18px;height:18px;top:3px;background-size:11px}
+  .side ul.checks li{padding-left:28px}
 
-  .guarantee{display:flex;gap:16px;align-items:flex-start;background:#f9fafb;border-radius:8px;padding:18px;margin:28px 0;font-family:Inter,sans-serif;font-size:16px;line-height:1.55}
-  .seal{flex:none;width:72px;height:72px;border-radius:50%;border:3px solid var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--accent);font-weight:800;line-height:1}
-  .seal b{font-size:24px}.seal span{font-size:9px;letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+  /* Mobile Sticky-Leiste */
+  .mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 14px rgba(0,0,0,.08);padding:10px 12px;display:flex;align-items:center;gap:10px;transform:translateY(110%);transition:transform .25s}
+  .mbar.show{transform:none}
+  .mbar img{width:48px;height:48px;object-fit:contain;mix-blend-mode:multiply;flex:none}
+  .mbar .btn{font-size:16px;padding:13px 10px;box-shadow:none}
+  @media (min-width:1000px){.mbar{display:none}}
 
-  /* FAQ */
-  details{border-bottom:1px solid var(--line);font-family:Inter,sans-serif;font-size:16px}
-  summary{cursor:pointer;font-weight:700;padding:16px 28px 16px 0;list-style:none;position:relative}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:22px;color:var(--accent)}
-  details[open] summary::after{content:"–"}
-  details p{margin:0 0 16px;color:#374151;line-height:1.6}
+  footer{background:var(--footer);color:#fff;margin-top:56px;padding:36px 16px 110px;font-family:Arial,sans-serif;font-size:14px;line-height:1.55;text-align:center}
+  footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 48px;margin-bottom:24px;font-size:16px}
+  footer a{color:#fff}
+  footer .inner{max-width:1000px;margin:0 auto}
+  footer .copy{text-align:left;margin-top:24px;font-size:15px}
 
-  footer{margin-top:48px;background:#f9fafb;border-top:1px solid var(--line);font:400 12px/1.6 Inter,sans-serif;color:var(--muted);padding:24px 0 100px}
-  footer a{color:var(--muted)}
-
-  /* Sticky-Balken ab ~60 % Scrolltiefe */
-  #sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.06);padding:10px 16px;transform:translateY(110%);transition:transform .25s;z-index:40}
-  #sticky.show{transform:none}
-  #sticky .cta{margin:0;padding:14px;font-size:16px;box-shadow:none}
-
-  @media (min-width:640px){h1{font-size:38px}.dek{font-size:20px}article h2{font-size:28px}}
+  @media (min-width:700px){
+    body{font-size:20px}
+    h1{font-size:40px}
+    .sub{font-size:19px}
+    h2{font-size:36px}
+  }
 </style>
 </head>
 <body>
-<div id="progress"></div>
-<div class="adbar">Anzeige</div>
-<header class="masthead">
-  <div class="wrap">
-    <!-- TODO: Name des Magazins festlegen (kein Fremd-Branding verwenden) -->
-    <a class="logo" href="#">Haut<span>&amp;</span>Heilung</a>
-    <div class="nav">Narbenpflege</div>
-  </div>
-</header>
+<div class="topline"></div>
+<div class="adlabel">Anzeige</div>
 
-<main class="wrap">
+<div class="layout">
 <article>
-  <div class="kicker">Gesundheit · Narbenpflege</div>
-  <h1>Ihre Narbe schmerzt noch nach Monaten? Der Grund liegt oft eine Schicht tiefer, und dort sieht ihn kaum jemand</h1>
-  <p class="dek">Viele Betroffene cremen täglich, massieren und befolgen jeden ärztlichen Rat. Trotzdem zieht und spannt die Narbe weiter. Hier lesen Sie, was unter der Narbe passiert und warum das Abwarten das Problem eher verstärkt.</p>
 
-  <div class="byline">
-    <!-- TODO: echte Autorin/echten Autor mit Foto eintragen -->
-    <div class="avatar">R</div>
-    <div><strong>Redaktion Narbenpflege</strong><br>Aktualisiert am 1. Oktober 2026 · Lesezeit ca. 5 Minuten</div>
+  <h1><span class="light">Neue Erkenntnisse:</span> Warum Ihre Narbe noch Monate nach der OP zieht und schmerzt, und was wirklich dagegen hilft</h1>
+  <p class="sub"><mark>Wenn Ihre Narbe noch lange nach der OP zieht, spannt oder schmerzt</mark> und nichts langfristig hilft, dann zeigt Ihnen dieser Artikel den häufigsten übersehenen Auslöser.</p>
+  <div class="rating"><span class="stars">★★★★★</span><span><!-- TODO: echte Anzahl -->[X] Bewertungen</span></div>
+
+  <!-- MEDIA: Hero -->
+  <figure class="media"><img class="hero-img" src="https://knightvision.tech/static/generated_images/kv-d1cf49f5.png" alt="Frau hält sich die schmerzende Narbe an der Schulter, daneben eine Darstellung der verklebten Faszie" width="1600" height="1200" fetchpriority="high"></figure>
+
+  <p>Der größte Fehler bei einer Narbe, die einfach nicht aufhören will zu schmerzen, ist der Gedanke, es sei nur eine Frage der Zeit.</p>
+  <p>Abwarten behebt die Ursache nicht. Die Narbe kann dabei sogar weiter verhärten.</p>
+  <p>Die Betroffenen versuchen dabei alles richtig zu machen. Sie cremen die Narbe ein, massieren sie und halten sich an das, was der Arzt empfohlen hat. Trotzdem leben viele jahrelang mit diesem Ziehen.</p>
+  <p class="lead-bold">Wie kann das sein?</p>
+
+  <h2>Die wahre Ursache von anhaltenden Narbenschmerzen</h2>
+
+  <!-- MEDIA: Lifestyle-Doppelbild -->
+  <div class="media duo">
+    <img src="https://knightvision.tech/static/generated_images/kv-797f5aa4.png" alt="Frau hebt Wäschekorb und hält sich die Kaiserschnittnarbe" width="1200" height="1600" loading="lazy">
+    <img src="https://knightvision.tech/static/generated_images/kv-8d8699e9.png" alt="Frau sitzt abends auf der Bettkante und hält sich die Schulter" width="1200" height="1600" loading="lazy">
   </div>
 
-  <figure>
-    <img src="https://knightvision.tech/static/generated_images/kv-c279ac72.png" alt="Frau sitzt morgens auf der Bettkante und hält sich die schmerzende Schulter mit Narbe" width="1600" height="1200" fetchpriority="high">
-    <figcaption>Morgens ist es oft am schlimmsten: Die Narbe zieht schon, bevor der Tag richtig begonnen hat. (Symbolbild)</figcaption>
-  </figure>
-
-  <p class="lead">Der größte Fehler bei einer Narbe, die einfach nicht aufhören will zu schmerzen, ist der Gedanke, es sei nur eine Frage der Zeit.</p>
-  <p>Abwarten behebt die Ursache nicht. Die Narbe kann dabei sogar weiter verhärten.</p>
-  <p>Die meisten Betroffenen tun dabei alles richtig. Sie cremen die Narbe ein, massieren sie und halten sich an das, was der Arzt empfohlen hat. Trotzdem leben viele jahrelang mit diesem Ziehen.</p>
-  <p class="single">Wie kann das sein?</p>
-  <p>Weil das Problem oft nicht mehr an der Oberfläche der Narbe liegt. <mark>Es ist ein Faszienproblem.</mark></p>
-
-  <h2>Der Schmerz fühlt sich an, als käme er von der Narbe. Meistens stimmt das nicht.</h2>
-  <p>Das Ziehen und die eingeschränkte Bewegung scheinen das zu bestätigen. Doch in vielen Fällen beginnt das Problem in einer häufig übersehenen Schicht direkt unter der Narbe: den <strong>Faszien</strong>.</p>
-  <p>Faszien sind ein durchgehendes Bindegewebsnetz, das den ganzen Körper verbindet. Damit wir uns frei bewegen können, müssen ihre Schichten gegeneinander gleiten.</p>
-  <p>Können sie das unter der Narbe nicht mehr, entstehen Schmerzen und Bewegungseinschränkungen an der Narbe selbst. Sie können aber auch an anderen Stellen auftreten, als <mark>wandernde Schmerzpunkte und diffuses Ziehen</mark>.</p>
+  <p>Das Problem liegt oft nicht mehr an der Oberfläche der Narbe. <strong>Es ist ein Faszienproblem.</strong></p>
+  <p>Der Schmerz fühlt sich an, als käme er direkt von der Narbe. Auch das Ziehen und die eingeschränkte Bewegung scheinen das zu bestätigen.</p>
+  <p>In vielen Fällen beginnt das Problem aber in einer häufig übersehenen Schicht direkt unter der Narbe: den <strong>Faszien</strong>. Sie verbinden als durchgehendes Netz den ganzen Körper.</p>
+  <p>Wenn diese Schichten nicht mehr richtig gleiten können, entstehen Schmerzen und Bewegungseinschränkungen an der Narbe selbst. Sie können aber auch an anderen Stellen auftreten, als wandernde Schmerzpunkte und diffuses Ziehen.</p>
 
   <div class="box">
-    <h4>Erkennen Sie sich wieder?</h4>
+    <p class="box-title">Kommt Ihnen das bekannt vor?</p>
     <ul class="checks">
       <li>Die Narbe zieht oder spannt bei bestimmten Bewegungen</li>
       <li>Sie können den Arm nicht mehr ganz über den Kopf heben</li>
       <li>Nachts vermeiden Sie es, sich auf diese Seite zu drehen</li>
       <li>Der Schmerz scheint zu „wandern“, auch weg von der Narbe</li>
-      <li>Cremes und Massagen helfen nur kurz</li>
     </ul>
   </div>
-  <p>Wenn Sie hier mehrmals genickt haben, ist der nächste Abschnitt für Sie besonders wichtig.</p>
 
   <h2>Die übersehene Ursache: die „unterbrochene Okklusion“</h2>
-  <p>Okklusion bedeutet, dass die Narbe abgedeckt und dadurch gleichmäßig feucht gehalten wird. Genau das braucht das Narbengewebe, während es sich umbaut.</p>
-  <p>Die meisten cremen ihre Narbe ein paarmal am Tag ein und vergessen es zwischendurch. Die Narbe ist dann für ein paar Stunden versorgt und danach wieder ungeschützt. Das ist die <strong>unterbrochene Okklusion</strong>.</p>
-  <p>Dabei kann sich das Gewebe rund um die Narbe nicht gleichmäßig anpassen. Feine Faszienschichten unter der Haut <mark>verkleben mit dem darunterliegenden Gewebe</mark>. An dieser Stelle verliert die Faszie ihre natürliche Gleitfähigkeit.</p>
 
-  <figure>
-    <img src="https://knightvision.tech/static/generated_images/kv-058baf2f.png" alt="Querschnitt der Haut: links ist die Narbe mit der Faszie verklebt, rechts liegt sie frei beweglich darüber" width="1600" height="900" loading="lazy">
-    <figcaption>Links: Narbe und Faszie sind verklebt, die Spannung breitet sich entlang der Faszie aus. Rechts: Die Faszie gleitet frei unter der Narbe. (Schematische Darstellung)</figcaption>
+  <!-- MEDIA: Animationsvideo (Knightvision-Job kv-1b7e331b). Wenn fertig: <img> durch <video src="VIDEO-URL" autoplay muted loop playsinline></video> ersetzen -->
+  <figure class="media">
+    <video src="https://knightvision.tech/static/generated_videos/kv-1b7e331b.mp4" poster="https://knightvision.tech/static/generated_images/kv-058baf2f.png" autoplay muted loop playsinline preload="metadata" width="1280" height="720" aria-label="Animation: Faszie verklebt mit der Narbe und löst sich unter dem Silikonpflaster"></video>
+    <figcaption>Links: Narbe und Faszie sind verklebt. Rechts: Die Faszie gleitet frei unter der Narbe. (Schematische Darstellung)</figcaption>
   </figure>
 
-  <p>Dann bleibt die Spannung nicht an der Narbe. <strong>Sie breitet sich entlang der ganzen Faszienkette aus.</strong></p>
-  <p>Daher kommen das ständige Ziehen und der tiefe Schmerz. Besonders deutlich wird das, wenn die Narbe über einem Gelenk liegt.</p>
+  <p>Wenn Sie die Narbe nur stundenweise eincremen und es dazwischen öfter vergessen, kann sich das Gewebe rund um die Narbe nicht gleichmäßig anpassen.</p>
+  <p>Dabei verkleben feine Faszienschichten unter der Haut mit dem darunterliegenden Gewebe. An dieser Stelle verliert die Faszie ihre natürliche Gleitfähigkeit.</p>
+  <p>Die Folge: Die Spannung breitet sich nicht nur an der Narbe aus, sondern <strong>entlang der ganzen Faszienkette</strong>.</p>
+  <p>Daher kommen das ständige Ziehen und der tiefe Schmerz, besonders wenn die Narbe über einem Gelenk liegt. Dann können Sie den Arm nicht mehr ganz über den Kopf heben oder sich nachts nicht mehr auf diese Seite drehen.</p>
+  <p class="lead-bold">Und hier kommt der entscheidende Teil: Diese Faszienverklebung ist von außen und selbst auf Scans oft kaum zu erkennen.</p>
+  <p>Darum wird sie so oft übersehen. Viele leben monatelang mit einer schmerzenden, spannenden Narbe weiter, weil sie das eigentliche Problem nie angehen.</p>
 
-  <blockquote>Diese Faszienverklebung ist von außen kaum zu erkennen, oft nicht einmal auf Scans.</blockquote>
+  <!-- MEDIA: Alltag -->
+  <figure class="media"><img src="https://knightvision.tech/static/generated_images/kv-d1c501e1.png" alt="Frau kommt in der Küche nicht an das oberste Regal und hält sich die Schulter" width="1600" height="1200" loading="lazy"></figure>
 
-  <p>Darum wird sie so oft übersehen. Viele leben monatelang mit einer schmerzenden, spannenden Narbe weiter, weil das eigentliche Problem nie angegangen wird.</p>
+  <p>Plötzlich wird selbst der Griff zum obersten Regal oder das Umdrehen im Schlaf zur unangenehmen Erinnerung an die Narbe.</p>
+  <p>Irgendwann planen Sie den ganzen Tag um den Schmerz herum und vermeiden bestimmte Bewegungen, weil schon die kleinste Dehnung das Ziehen auslösen könnte.</p>
 
-  <h2>Wenn sich der Alltag um die Narbe dreht</h2>
-  <figure>
-    <img src="https://knightvision.tech/static/generated_images/kv-9a614994.png" alt="Frau versucht in der Küche das oberste Regal zu erreichen und hält sich dabei die Schulter" width="1600" height="1200" loading="lazy">
-    <figcaption>Plötzlich wird selbst der Griff zum obersten Regal zur Erinnerung an die Narbe. (Symbolbild)</figcaption>
-  </figure>
-  <p>Erst ist es nur der Griff zum obersten Regal. Dann das Umdrehen im Schlaf. Irgendwann planen Sie den ganzen Tag um den Schmerz herum.</p>
-  <p>Sie vermeiden bestimmte Bewegungen, weil schon die kleinste Dehnung das Ziehen auslösen könnte.</p>
+  <h2>Warum Cremes, Gele und Öle meist nur kurz helfen</h2>
 
-  <h2>Warum Cremes, Gele und Massagen meist nur kurz helfen</h2>
-  <figure>
-    <img src="https://knightvision.tech/static/generated_images/kv-31d1aebe.png" alt="Halb aufgebrauchte Tuben mit Narbengel, Cremes und eine Massagerolle auf einer Badablage" width="1600" height="1200" loading="lazy">
-    <figcaption>Viele haben eine ganze Sammlung angefangener Produkte im Bad. (Symbolbild)</figcaption>
-  </figure>
-  <div class="box warnbox">
-    <h4>Das Frustrierende daran</h4>
-    <ul class="checks xs">
-      <li><strong>Cremes und Gele</strong> wirken nur, solange sie auf der Haut sind. Danach ist die Okklusion wieder unterbrochen.</li>
-      <li><strong>Massagen</strong> lockern das Gewebe kurzfristig. Zwischen den Anwendungen kann es aber erneut verkleben.</li>
-      <li><strong>Abwarten</strong> lässt die Narbe weiter verhärten.</li>
-    </ul>
-  </div>
-  <p>Keine dieser Methoden löst die Verklebung dauerhaft oder stellt die Gleitfähigkeit der Faszie wieder her. Deshalb kommt der Schmerz immer wieder.</p>
+  <!-- MEDIA: Alte Pflegeprodukte -->
+  <figure class="media"><img src="https://knightvision.tech/static/generated_images/kv-1984e250.png" alt="Angebrochene Tuben mit Narbengel, Cremes und ein Narbenöl auf der Badablage" width="1600" height="1200" loading="lazy"></figure>
 
-  <p class="single">Die gute Nachricht: Es gibt einen einfachen Ansatz, den Sie zu Hause umsetzen können. Ohne stündliches Nachcremen.</p>
-
-  <h2>Der entscheidende Ansatz: Okklusion ohne Unterbrechung</h2>
-  <p>Die Narbe muss <strong>12 bis 24 Stunden am Tag</strong> durchgehend mit einer geschlossenen Barriere bedeckt sein. Diese Barriere muss zwei Dinge gleichzeitig leisten:</p>
-  <ol class="steps">
-    <li><strong>Die Narbe durchgehend feucht halten</strong>So bleibt das Narbengewebe geschmeidig, statt zwischen zwei Anwendungen wieder auszutrocknen und zu verhärten.</li>
-    <li><strong>Gleichmäßigen Druck auf das Gewebe geben</strong>Das unterstützt, dass die Narbe beweglich über der Faszie liegen bleibt, statt mit ihr zu verwachsen.</li>
-  </ol>
-  <p>Genau diese Kombination leisten <strong>medizinische Silikon-Narbenpflaster</strong>. Silikon gilt seit rund 30 Jahren als Goldstandard in der Narbenpflege. Internationale Fachgremien empfehlen es als erste Maßnahme.<sup><a href="#quellen">1</a></sup></p>
-  <p class="source" id="quellen">
-    <!-- TODO: Quelle vor Livegang gegen das Original prüfen -->
-    <sup>1</sup> Mustoe TA et al. „International clinical recommendations on scar management“. Plast Reconstr Surg. 2002;110(2):560–571. Internationales Expertengremium (24 Fachleute), indexiert in PubMed (PMID 12142678).
-  </p>
-
-  <h2>Warum wir die Narbenpflaster von Azaléa empfehlen</h2>
-  <p>Gestützt auf diese Forschung haben wir die <strong>Silikon-Narbenpflaster von Azaléa</strong> entwickelt. Sie sind kein weiteres Narbengel, das nur oberflächlich abdeckt.</p>
-
-  <figure>
-    <img src="https://knightvision.tech/static/generated_images/kv-bab46ea0.png" alt="Transparentes Silikonpflaster wird passend zugeschnitten und lückenlos auf eine Narbe an der Schulter geklebt" width="1600" height="1200" loading="lazy">
-    <figcaption>Einfach auf die Form der Narbe zuschneiden und aufkleben. Es sitzt lückenlos, bis zu 24 Stunden am Tag. (Symbolbild)</figcaption>
-  </figure>
-
-  <ul class="checks">
-    <li><strong>Exakt zuschneidbar:</strong> Die Rolle lässt sich auf jede Narbenform und -länge zuschneiden. So sitzt das Pflaster lückenlos.</li>
-    <li><strong>Bis zu 24 Stunden Tragezeit:</strong> Die Okklusion wird nicht mehr unterbrochen, auch nicht nachts.</li>
-    <li><strong>Gleichmäßiger Druck:</strong> Er unterstützt, dass die Narbe nicht mit der Faszie verklebt.</li>
-    <li><strong>Medizinisches Silikon:</strong> hautfreundlich, waschbar und wiederverwendbar</li>
+  <ul class="checks crosses">
+    <li><strong>Cremes, Gele und Öle</strong> wirken nur, solange sie auf der Haut sind. Danach ist die Okklusion wieder unterbrochen.</li>
+    <li><strong>Massagen</strong> lockern das Gewebe kurzfristig, doch dazwischen kann es erneut verkleben.</li>
+    <li><strong>Abwarten</strong> lässt die Narbe weiter verhärten.</li>
   </ul>
+  <p>Keine dieser Methoden löst die Verklebung der Faszie oder stellt ihre Gleitfähigkeit wieder her. Deshalb kommt der Schmerz immer wieder.</p>
 
-  <p>Das kann das Ziehen und die Spannung spürbar lindern und Ihnen mehr Bewegungsfreiheit zurückgeben. Die Faszie kann sich wieder von der Narbe lösen und ihre natürliche Gleitfähigkeit zurückgewinnen.</p>
+  <p class="lead-bold">Doch die gute Nachricht ist: Es gibt jetzt eine einfache Methode, die die Gleitfähigkeit direkt von zu Hause aus unterstützen kann. Ohne stündliches Nachcremen.</p>
+
+  <h2>Die Methode, die an der Ursache der Narbenschmerzen ansetzt.*</h2>
+
+  <!-- MEDIA: Methode Doppelbild (Produkt auf Narbe | Faszie) -->
+  <div class="media duo">
+    <img src="https://knightvision.tech/static/generated_images/kv-2c40486e.png" alt="Silikon-Narbenpflaster auf einer Narbe an der Schulter" width="1200" height="1600" loading="lazy">
+    <img src="https://knightvision.tech/static/generated_images/kv-49b48995.png" alt="Darstellung der gespannten Faszie unter einer Schulternarbe" width="1200" height="1600" loading="lazy">
+  </div>
+
+  <p>Das alles ist möglich dank eines Prinzips namens <strong>durchgängige Silikon-Okklusion</strong>.</p>
+  <p>Die Narbe wird <strong>12 bis 24 Stunden am Tag</strong> durchgehend mit einer geschlossenen Barriere bedeckt. Sie hält die Narbe feucht und übt gleichzeitig gleichmäßigen Druck auf das Gewebe aus. So verwächst die Narbe nicht mit der darunterliegenden Faszie, sondern bleibt beweglich über ihr liegen.</p>
+  <p>Gestützt auf die Empfehlungen eines internationalen Expertengremiums aus 24 Fachleuten<sup><a href="#quelle">1</a></sup> haben wir ein Produkt entwickelt, das genau diese Faktoren kombiniert: die <strong>Silikon-Narbenpflaster von Azaléa</strong>.</p>
+  <p>Sie sind kein weiteres Narbengel, das nur oberflächlich abdeckt:</p>
+  <ul class="checks">
+    <li><strong>Exakt zuschneidbar</strong> auf die individuelle Narbenform, für einen lückenlosen Sitz</li>
+    <li><strong>Bis zu 24 Stunden am Tag</strong> tragbar, so wird die Okklusion nicht mehr unterbrochen</li>
+    <li><strong>Gleichmäßiger Druck</strong> unterstützt, dass die Narbe nicht mit der Faszie verklebt</li>
+    <li><strong>Seit rund 30 Jahren Goldstandard</strong> in der Narbenpflege</li>
+  </ul>
+  <p>Das kann das Ziehen und die Spannung spürbar lindern und Ihnen mehr Bewegungsfreiheit zurückgeben.* Gleichzeitig unterstützt der gleichmäßige Druck, dass sich die Faszie wieder von der Narbe löst und ihre natürliche Gleitfähigkeit zurückgewinnt.</p>
   <p>Das Ziel ist eine geschmeidigere, frei bewegliche Narbe. Die Pflaster setzen an der Ursache an, statt sie nur zu überdecken.</p>
+  <p class="source" id="quelle"><!-- TODO: Quelle vor Livegang gegen das Original prüfen --><sup>1</sup> Mustoe TA et al. „International clinical recommendations on scar management“. Plast Reconstr Surg. 2002;110(2):560–571. PubMed-PMID 12142678.</p>
 
-  <a class="cta" href="[PRODUKT-URL]" data-track="cta-inline-1">Jetzt Narbenpflaster ansehen<small>2 + 1 gratis · 30 Tage Geld-zurück-Garantie</small></a>
-  <p class="cta-note">Kostenloser Versand innerhalb Deutschlands · TODO prüfen</p>
+  <h2>Sie sind kinderleicht anzuwenden.</h2>
 
-  <h2>So einfach ist die Anwendung</h2>
-  <ol class="steps">
-    <li><strong>Reinigen</strong>Haut rund um die Narbe waschen und gut trocknen lassen.</li>
-    <li><strong>Zuschneiden</strong>Ein Stück von der Rolle abschneiden, das die Narbe rundherum etwa 1 cm überdeckt.</li>
-    <li><strong>Aufkleben und tragen</strong>Glatt andrücken und bis zu 24 Stunden tragen. Einmal täglich abnehmen, Pflaster und Haut waschen, wieder aufkleben.</li>
-  </ol>
+  <!-- MEDIA: Schritt 1 (Bild oder Video) -->
+  <figure class="media"><img src="https://knightvision.tech/static/generated_images/kv-cd310c50.png" alt="Ein Stück wird mit der Schere von der Narbenpflaster-Rolle abgeschnitten" width="1600" height="1200" loading="lazy"></figure>
+  <p class="step"><u>Schritt 1</u>: Passend zuschneiden</p>
+  <p>Schneiden Sie ein Stück von der Rolle ab, das die Narbe rundherum etwa 1 cm überdeckt.</p>
 
-  <h2>Das sagen Anwenderinnen</h2>
-  <!-- Nur echte, dokumentierte Kundenstimmen mit Einverständnis verwenden. Keine erfundenen Namen, Fotos oder Bewertungen. -->
-  <div class="review"><div class="ph">TODO: Echte Kundenstimme 1 einfügen (Vorname + Initial, Narbenart, Anwendungsdauer)</div></div>
-  <div class="review"><div class="ph">TODO: Echte Kundenstimme 2 einfügen, gern bewusst zurückhaltend formuliert („nicht über Nacht, aber …“)</div></div>
-  <div class="review"><div class="ph">TODO: Echte Kundenstimme 3 einfügen</div></div>
+  <!-- MEDIA: Schritt 2 (Bild oder Video) -->
+  <figure class="media"><img src="https://knightvision.tech/static/generated_images/kv-2119151e.png" alt="Schutzfolie wird vom Silikonpflaster abgezogen" width="1600" height="1200" loading="lazy"></figure>
+  <p class="step"><u>Schritt 2</u>: Schutzfolie abziehen</p>
+  <p>Haut vorher waschen und gut trocknen lassen, dann die Schutzfolie abziehen.</p>
 
-  <!-- ANGEBOT -->
-  <section class="offer" id="angebot">
-    <span class="tag">Aktuelles Angebot</span>
-    <h2>Azaléa Silikon-Narbenpflaster</h2>
-    <p class="sub">Die zuschneidbare Rolle für durchgängige Okklusion, bis zu 24 Stunden am Tag</p>
-    <!-- TODO: Produktfoto der Azaléa-Rolle einsetzen -->
-    <div class="prodph">[PRODUKTBILD AZALÉA NARBENPFLASTER-ROLLE, 1:1]</div>
+  <!-- MEDIA: Schritt 3 (Bild oder Video) -->
+  <figure class="media"><img src="https://knightvision.tech/static/generated_images/kv-00171e19.png" alt="Silikonpflaster wird auf eine Kaiserschnittnarbe geklebt" width="1600" height="1200" loading="lazy"></figure>
+  <p class="step"><u>Schritt 3</u>: Aufkleben und tragen</p>
+  <p>Glatt andrücken und bis zu 24 Stunden tragen. Einmal täglich abnehmen, Pflaster und Haut waschen, wieder aufkleben. Das Pflaster ist wiederverwendbar.</p>
 
-    <div class="price">
-      <span class="now">59,90 €</span>
-      <!-- TODO: Streichpreis = niedrigster Gesamtpreis der letzten 30 Tage (§ 11 PAngV) -->
-      <span class="was">[STREICHPREIS]</span>
-      <span class="save">2 + 1 gratis</span>
-    </div>
+  <h2>Das berichten unsere Kundinnen und Kunden.*</h2>
+  <div class="stars-big" aria-hidden="true"><span style="font-size:38px">★</span><span style="font-size:52px">★</span><span style="font-size:68px">★</span><span style="font-size:52px">★</span><span style="font-size:38px">★</span></div>
 
+  <!-- MEDIA: Collage (6 Fotos). Ideal: echte Kundenfotos mit Einverständnis einsetzen -->
+  <div class="collage">
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-00cdab34.png" alt="" loading="lazy"></div>
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-59362fa3.png" alt="" loading="lazy"></div>
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-c01a06fc.png" alt="" loading="lazy"></div>
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-11923715.png" alt="" loading="lazy"></div>
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-2b10621c.png" alt="" loading="lazy"></div>
+    <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-627755a8.png" alt="" loading="lazy"></div>
+  </div>
+
+  <!-- TODO: echte Kundenstimmen eintragen. Vorlage für jede Bewertung: -->
+  <div class="review">
+    <div class="review-head"><span class="avatar"></span><!-- TODO: Avatar-Foto --><span class="review-name">[VORNAME NACHNAME]</span></div>
+    <p class="review-title"><span class="stars">★★★★★</span> [TITEL DER BEWERTUNG]</p>
+    <p class="review-meta">[STADT], [DATUM]</p>
+    <p class="verified">Verifizierter Kauf</p>
+    <p class="todo">[TEXT DER BEWERTUNG 1]</p>
+  </div>
+  <div class="review">
+    <div class="review-head"><span class="avatar"></span><!-- TODO: Avatar-Foto --><span class="review-name">[VORNAME NACHNAME]</span></div>
+    <p class="review-title"><span class="stars">★★★★★</span> [TITEL DER BEWERTUNG]</p>
+    <p class="review-meta">[STADT], [DATUM]</p>
+    <p class="verified">Verifizierter Kauf</p>
+    <p class="todo">[TEXT DER BEWERTUNG 2]</p>
+  </div>
+  <div class="review">
+    <div class="review-head"><span class="avatar"></span><!-- TODO: Avatar-Foto --><span class="review-name">[VORNAME NACHNAME]</span></div>
+    <p class="review-title"><span class="stars">★★★★★</span> [TITEL DER BEWERTUNG]</p>
+    <p class="review-meta">[STADT], [DATUM]</p>
+    <p class="verified">Verifizierter Kauf</p>
+    <p class="todo">[TEXT DER BEWERTUNG 3]</p>
+  </div>
+
+  <h2>Sie müssen nicht heute „Ja“ sagen. Sagen Sie „Vielleicht“.</h2>
+
+  <!-- MEDIA: Garantie-Bild (Siegel liegt als Grafik darüber) -->
+  <div class="guarantee">
+    <img src="https://knightvision.tech/static/generated_images/kv-47ed8fdc.png" alt="Azaléa Narbenpflaster-Rolle vor Himmel" width="1600" height="900" loading="lazy">
+    <svg class="seal" viewBox="0 0 200 200" role="img" aria-label="30 Tage 100 % Geld-zurück-Garantie">
+      <defs><path id="arcTop" d="M30,100 a70,70 0 1,1 140,0"/><path id="arcBot" d="M38,100 a62,62 0 1,0 124,0"/></defs>
+      <circle cx="100" cy="100" r="97" fill="#fff" opacity=".9"/>
+      <circle cx="100" cy="100" r="93" fill="var(--brand)"/>
+      <circle cx="100" cy="100" r="54" fill="none" stroke="#fff" stroke-width="3"/>
+      <text font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="17" fill="#fff" letter-spacing="1.5"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">100% GELD-ZURÜCK</textPath></text>
+      <text font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="17" fill="#fff" letter-spacing="2"><textPath href="#arcBot" startOffset="50%" text-anchor="middle" dominant-baseline="hanging">GARANTIE</textPath></text>
+      <text x="100" y="108" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="52" fill="#fff">30</text>
+      <text x="100" y="134" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="20" fill="#fff" letter-spacing="1">TAGE</text>
+    </svg>
+  </div>
+
+  <p>Azaléa ist so überzeugt davon, dass die Silikon-Narbenpflaster spürbar mehr Bewegungsfreiheit bringen können*, dass Sie sie <strong>30 Tage lang ohne Risiko</strong> testen können.</p>
+  <p>Wenn sie Ihnen nicht helfen, erhalten Sie den vollen Kaufpreis zurück. Keine Diskussion.</p>
+  <p>Klicken Sie unten auf „Rabatt anwenden &amp; Verfügbarkeit prüfen“. Sie werden direkt auf die verschlüsselte, offizielle Bestellseite von Azaléa weitergeleitet.</p>
+  <p>Die meisten Kund:innen entscheiden sich für <strong>das 2+1-Angebot</strong>.</p>
+  <p>Warum?</p>
+  <p>Eine Narbe braucht Zeit. Wer die Okklusion wirklich nicht unterbrechen will, braucht genug Pflaster für mehrere Monate, ohne zwischendurch nachbestellen zu müssen.</p>
+  <p>Andere haben mehr als eine Narbe oder bestellen gleich für den Partner, die Mutter oder eine Freundin mit.</p>
+  <p>Und mit dem 2+1-Angebot <strong>bekommen Sie die dritte Rolle gratis</strong>.</p>
+  <p><strong>Dann nutzen Sie jetzt diese Aktion</strong> und klicken Sie unten auf die Schaltfläche, um sich Ihre Narbenpflaster zu sichern.</p>
+
+  <a class="btn btn-wide" href="[PRODUKT-URL]" data-track="cta-bottom">Rabatt anwenden &amp;<br>Verfügbarkeit prüfen</a>
+</article>
+
+<aside>
+  <div class="side">
+    <p class="side-title">Endlich spürbar weniger Ziehen an der Narbe*</p>
+    <img src="img/produkt-rolle.png" alt="Azaléa Silikon-Narbenpflaster Rolle" width="1080" height="1080">
+    <a class="btn" href="[PRODUKT-URL]" data-track="cta-sidebar">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M3 9h9V4l9 8-9 8v-5H3z"/></svg>
+      <span>Verfügbarkeit überprüfen</span>
+    </a>
+    <div class="stars">★★★★★</div>
+    <div class="count"><!-- TODO: echte Werte -->[4,X] | [X] Bewertungen</div>
     <ul class="checks">
-      <li>3 Rollen zum Preis von 2, genug für mehrere Monate Narbenpflege</li>
-      <li>Auf jede Narbenform zuschneidbar</li>
-      <li>Waschbar und wiederverwendbar</li>
+      <li>Mehr Bewegungsfreiheit, ohne stündliches Nachcremen</li>
+      <li>Bis zu 24 Stunden tragbar, auf jede Narbe zuschneidbar</li>
+      <li><!-- TODO: echte Zahl -->Über [X] zufriedene Kund:innen</li>
       <li>30 Tage Geld-zurück-Garantie</li>
     </ul>
-
-    <a class="cta" href="[PRODUKT-URL]" data-track="cta-offer">Ja, ich will mehr Bewegungsfreiheit<small>Zum Angebot: 2 + 1 gratis</small></a>
-
-    <div class="trust">
-      <div><b>30</b>Tage Geld-zurück</div>
-      <div><b>24 h</b>Tragezeit</div>
-      <div><b>DE</b>Versand aus Deutschland</div>
-    </div>
-    <p class="legal">Preis inkl. MwSt., zzgl. ggf. Versandkosten. Medizinprodukt: Gebrauchsanweisung beachten. Nicht auf offene Wunden kleben.</p>
-  </section>
-
-  <div class="guarantee">
-    <div class="seal"><b>30</b><span>Tage</span></div>
-    <div><strong>Sie gehen kein Risiko ein.</strong><br>Testen Sie die Narbenpflaster 30 Tage lang. Wenn sie Ihnen nicht helfen, erhalten Sie den vollen Kaufpreis zurück.</div>
   </div>
+</aside>
+</div>
 
-  <h2>Häufige Fragen</h2>
-  <details><summary>Wie lange muss ich das Pflaster tragen?</summary><p>Für eine durchgängige Okklusion 12 bis 24 Stunden am Tag. Nehmen Sie es einmal täglich zum Waschen ab und kleben Sie es danach wieder auf.</p></details>
-  <details><summary>Für welche Narben eignet sich das?</summary><p>Für geschlossene, verheilte Narben, zum Beispiel nach Operationen, Kaiserschnitt, Verletzungen oder Verbrennungen. Bei Unsicherheit sprechen Sie mit Ihrer Ärztin oder Ihrem Arzt.</p></details>
-  <details><summary>Hilft das auch bei älteren Narben?</summary><p>Silikon wird sowohl bei frischen als auch bei älteren Narben eingesetzt. Bei älteren Narben braucht es meist mehr Geduld. Rechnen Sie mit mehreren Wochen konsequenter Anwendung.</p></details>
-  <details><summary>Wann merke ich einen Unterschied?</summary><p>Das ist individuell. Planen Sie mindestens 8 bis 12 Wochen täglicher Anwendung ein. Entscheidend ist, dass Sie die Okklusion nicht unterbrechen.</p></details>
-  <details><summary>Kann ich damit duschen oder Sport machen?</summary><p>Nehmen Sie das Pflaster zum Duschen ab und kleben Sie es auf die trockene Haut wieder auf. Bei Sport kann es in der Regel getragen werden.</p></details>
-  <details><summary>Wie oft kann ich ein Stück wiederverwenden?</summary><p>TODO: Herstellerangabe zur Wiederverwendbarkeit eintragen.</p></details>
-  <details><summary>Was ist, wenn es bei mir nicht hilft?</summary><p>Dann greift unsere 30-Tage-Geld-zurück-Garantie und Sie erhalten den vollen Kaufpreis zurück.</p></details>
-
-  <a class="cta" href="[PRODUKT-URL]" data-track="cta-bottom" style="margin-top:28px">Jetzt 2 + 1 gratis sichern<small>30 Tage Geld-zurück-Garantie</small></a>
-</article>
-</main>
+<div class="mbar" id="mbar">
+  <img src="img/produkt-rolle.png" alt="">
+  <a class="btn" href="[PRODUKT-URL]" data-track="cta-mobile-bar">Verfügbarkeit prüfen</a>
+</div>
 
 <footer>
-  <div class="wrap">
-    <p><strong>Werbehinweis:</strong> Dieser Beitrag ist eine Anzeige der Azaléa [RECHTSFORM, TODO].</p>
-    <p><strong>Hinweis:</strong> Die Inhalte dienen der allgemeinen Information und ersetzen keine ärztliche Beratung. Bei anhaltenden oder starken Schmerzen wenden Sie sich bitte an Ihre Ärztin oder Ihren Arzt. Individuelle Ergebnisse können variieren. Bilder sind Symbolbilder.</p>
-    <p><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="#">Widerrufsbelehrung</a> · <a href="#">AGB</a></p>
+  <div class="inner">
+    <div class="links">
+      <!-- TODO: Links eintragen -->
+      <a href="#">Allgemeine Geschäftsbedingungen</a>
+      <a href="#">Datenschutzerklärung</a>
+      <a href="#">Impressum</a>
+    </div>
+    <p>Dieser Beitrag ist eine Anzeige der Azaléa [RECHTSFORM]. Unsere Produkte und Informationen sind nicht dazu gedacht, Krankheiten oder medizinische Zustände zu diagnostizieren, zu behandeln, zu heilen oder zu verhindern. Die bereitgestellten Informationen dienen nur zu Informationszwecken und können nicht die Dienste einer Ärztin, eines Arztes oder einer medizinischen Fachkraft ersetzen. Konsultieren Sie bei anhaltenden oder starken Schmerzen immer Ihre Ärztin oder Ihren Arzt. Nicht auf offene Wunden kleben.</p>
+    <p>*Individuelle Ergebnisse können variieren.<br>Erfahrungsberichte spiegeln individuelle Erlebnisse wider und sind nicht unbedingt typisch. Bilder auf dieser Seite sind teilweise Symbolbilder.</p>
+    <p class="copy">Copyright © Azaléa 2026</p>
   </div>
 </footer>
 
-<div id="sticky"><a class="cta" href="[PRODUKT-URL]" data-track="cta-sticky">2 + 1 gratis sichern · 59,90 €</a></div>
-
 <script>
 (function(){
-  var bar=document.getElementById('progress'),sticky=document.getElementById('sticky'),offer=document.getElementById('angebot');
-  function onScroll(){
-    var h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?h.scrollTop/max:0;
-    bar.style.width=(p*100)+'%';
-    var r=offer.getBoundingClientRect(),offerVisible=r.top<h.clientHeight&&r.bottom>0;
-    sticky.classList.toggle('show',p>0.6&&!offerVisible);
-  }
+  var bar=document.getElementById('mbar');
+  function onScroll(){bar.classList.toggle('show',window.scrollY>500);}
   addEventListener('scroll',onScroll,{passive:true});onScroll();
 })();
 </script>
