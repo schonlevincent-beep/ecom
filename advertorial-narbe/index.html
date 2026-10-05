@@ -154,6 +154,19 @@
     h2{font-size:36px}
   }
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','981221737920294');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'Azaléa Silikon-Narbenpflaster',content_category:'Advertorial',content_type:'product'});
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=981221737920294&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 <div class="topline"></div>
@@ -452,6 +465,15 @@
   }
   v.addEventListener('ended',function(){go(i+1);});
   v.addEventListener('error',function(){bad[i]=true;go(i+1);});
+})();
+</script>
+<script>
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[data-track]');
+    if(!a||!window.fbq)return;
+    fbq('trackCustom','AdvertorialCTA',{page:'main',button:a.getAttribute('data-track')});
+  });
 })();
 </script>
 </body>
