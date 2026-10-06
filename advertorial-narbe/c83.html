@@ -61,7 +61,8 @@
   html{overflow-x:clip}
   body{overflow-x:clip;max-width:100%}
   @media (max-width:999px){html,body{overflow-x:hidden;overscroll-behavior-x:none}}
-  h1,h2{overflow-wrap:break-word;hyphens:auto}
+  h1,h2,h3,.sub,.box-title,summary{hyphens:manual;-webkit-hyphens:manual;overflow-wrap:normal;word-break:normal;text-wrap:balance}
+  article p,article li{hyphens:manual;-webkit-hyphens:manual;text-wrap:pretty}
   .collage{overflow:hidden}
   .collage.big{display:grid;grid-template-columns:repeat(3,1fr);height:auto;max-width:640px;padding:14px 18px 22px;margin:0 auto 34px}
   .collage.big .pol{position:relative;left:auto;right:auto;top:auto;width:auto;margin:-10px -12px}
@@ -203,6 +204,13 @@
     .sub{font-size:19px}
     h2{font-size:36px}
   }
+  /* Handy: kompaktere Überschriften */
+  @media (max-width:699px){
+    h1{font-size:25px;line-height:1.22}
+    h2{font-size:22px;line-height:1.25;margin:38px 0 16px}
+    .sub{font-size:16px}
+  }
+  .nw{white-space:nowrap}
 </style>
 <!-- Meta Pixel -->
 <script>
@@ -340,7 +348,7 @@ fbq('track','ViewContent',{content_name:'Azaléa Silikon-Narbenpflaster',content
   <p>Ganz ohne Spritzen, Laser oder ständiges Nachcremen.*</p>
   <p class="source" id="quelle"><!-- TODO: Quelle vor Livegang gegen das Original prüfen --><sup>1</sup> Mustoe TA et al. „International clinical recommendations on scar management“. Plast Reconstr Surg. 2002;110(2):560–571. PubMed-PMID 12142678.</p>
 
-  <h2>Hier kommt das Azaléa Silikon-Narbenpflaster ins Spiel</h2>
+  <h2>Hier kommt das Azaléa Narbenpflaster <span class="nw">ins Spiel</span></h2>
   <figure class="media narrow crop-sq"><img src="https://knightvision.tech/static/generated_images/kv-7eca23ba.png" alt="Silikonpflaster liegt flach auf einer Narbe an der Schulter" width="1200" height="1600" loading="lazy"></figure>
   <p>Es wurde speziell entwickelt, um die unterbrochene Okklusion zu beenden.</p>
   <p>Das Pflaster hält die Narbe bis zu 24 Stunden am Tag feucht und übt dabei einen leichten, gleichmäßigen Druck aus.</p>
@@ -467,7 +475,7 @@ fbq('track','ViewContent',{content_name:'Azaléa Silikon-Narbenpflaster',content
   <p>Keine teuren Termine.</p>
   <p>Einfach zuschneiden, aufkleben und den Tag leben.</p>
 
-  <h2>Es kostet nur einen Bruchteil einer einzigen Facharzt-Behandlung</h2>
+  <h2>Es kostet nur einen Bruchteil einer einzigen <span class="nw">Facharzt-Behandlung</span></h2>
   <p>Seien wir ehrlich: Eine schmerzende Narbe ist teuer.</p>
   <p>Und das nicht nur im Geldbeutel …</p>
   <p>sondern auch in Zeit, Nerven und verlorener Lebensqualität.</p>
