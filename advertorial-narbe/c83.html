@@ -63,11 +63,20 @@
   @media (max-width:999px){html,body{overflow-x:hidden;overscroll-behavior-x:none}}
   h1,h2{overflow-wrap:break-word;hyphens:auto}
   .collage{overflow:hidden}
-  .collage-2{margin-top:-10px}
-  .collage-2 .pol:nth-child(1){transform:rotate(4deg)}
-  .collage-2 .pol:nth-child(3){transform:rotate(-6deg)}
-  .collage-2 .pol:nth-child(4){transform:rotate(-5deg)}
-  .collage-2 .pol:nth-child(6){transform:rotate(7deg)}
+  .collage.big{display:grid;grid-template-columns:repeat(3,1fr);height:auto;max-width:640px;padding:14px 18px 22px;margin:0 auto 34px}
+  .collage.big .pol{position:relative;left:auto;right:auto;top:auto;width:auto;margin:-10px -12px}
+  .collage.big .pol:nth-child(1){transform:rotate(-6deg);z-index:1}
+  .collage.big .pol:nth-child(2){transform:rotate(3deg);z-index:3}
+  .collage.big .pol:nth-child(3){transform:rotate(7deg);z-index:2}
+  .collage.big .pol:nth-child(4){transform:rotate(4deg);z-index:4}
+  .collage.big .pol:nth-child(5){transform:rotate(-4deg);z-index:5}
+  .collage.big .pol:nth-child(6){transform:rotate(-8deg);z-index:3}
+  .collage.big .pol:nth-child(7){transform:rotate(5deg);z-index:2}
+  .collage.big .pol:nth-child(8){transform:rotate(-3deg);z-index:6}
+  .collage.big .pol:nth-child(9){transform:rotate(6deg);z-index:4}
+  .collage.big .pol:nth-child(10){transform:rotate(-7deg);z-index:5}
+  .collage.big .pol:nth-child(11){transform:rotate(4deg);z-index:7}
+  .collage.big .pol:nth-child(12){transform:rotate(-5deg);z-index:6}
   @media (max-width:440px){
     .site-inner{padding:10px 12px;gap:8px}
     .site-logo{font-size:18px;gap:6px}
@@ -353,15 +362,13 @@ fbq('track','ViewContent',{content_name:'Azaléa Silikon-Narbenpflaster',content
   <div class="stars-big" aria-hidden="true"><span style="font-size:38px">★</span><span style="font-size:52px">★</span><span style="font-size:68px">★</span><span style="font-size:52px">★</span><span style="font-size:38px">★</span></div>
 
   <!-- MEDIA: Collage (6 Fotos). Ideal: echte Kundenfotos mit Einverständnis einsetzen -->
-  <div class="collage">
+  <div class="collage big">
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-00cdab34.png" alt="" loading="lazy"></div>
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-2fd45994.png" alt="" loading="lazy"></div>
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-c01a06fc.png" alt="" loading="lazy"></div>
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-05de1855.png" alt="" loading="lazy"></div>
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-a6c2bf94.png" alt="" loading="lazy"></div>
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-97bead88.png" alt="" loading="lazy"></div>
-  </div>
-  <div class="collage collage-2">
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-972b1c18.png" alt="" loading="lazy"></div>
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-64a80796.png" alt="" loading="lazy"></div>
     <div class="pol"><img src="https://knightvision.tech/static/generated_images/kv-2b939ebd.png" alt="" loading="lazy"></div>
