@@ -62,6 +62,18 @@
   .byline-role{color:var(--muted);font-size:14px}
   .codebox{border:2px dashed var(--brand);border-radius:10px;padding:18px;margin:0 0 26px;text-align:center;background:#fff7fa}
   .codebox .code{display:inline-block;font:800 26px/1 Montserrat,Arial,sans-serif;letter-spacing:.08em;color:var(--brand);margin:8px 0}
+  /* Kein seitliches Wischen auf dem Handy */
+  html{overflow-x:clip}
+  body{overflow-x:clip;max-width:100%}
+  @media (max-width:999px){html,body{overflow-x:hidden;overscroll-behavior-x:none}}
+  h1,h2{overflow-wrap:break-word;hyphens:auto}
+  .collage{overflow:hidden}
+  @media (max-width:440px){
+    .site-inner{padding:10px 12px;gap:8px}
+    .site-logo{font-size:18px;gap:6px}
+    .site-logo svg{width:24px;height:24px}
+    .site-tag{font-size:10px;padding:5px 7px;letter-spacing:.04em}
+  }
   .adlabel{font-size:12px;color:var(--muted);text-align:center;padding:6px 16px;background:#fafafa;border-bottom:1px solid var(--line)}
 
   .layout{max-width:1240px;margin:0 auto;padding:24px 16px 0;display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
