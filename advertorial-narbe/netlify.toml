@@ -1,0 +1,9 @@
+# Netlify Image CDN: Bilder von Knightvision automatisch verkleinern und als WebP ausliefern
+[images]
+  remote_images = ["https://knightvision.tech/static/generated_images/.*"]
+
+# Seiten kurz cachen, damit Änderungen schnell sichtbar sind
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
