@@ -642,5 +642,61 @@ fbq('track','ViewContent',{content_name:'Azaléa Silikon-Narbenpflaster',content
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go();io.disconnect();}})},{rootMargin:'400px 0px'});
  io.observe(v);})();
 </script>
+<script>
+(function () {
+  var SHOP_HOST = 'shop-azalea.de';
+  var KEY = 'aza_params';
+
+  // Parameter aus der aktuellen URL holen, für Folgeseiten merken
+  var current = new URLSearchParams(window.location.search);
+  var stored = {};
+  try { stored = JSON.parse(sessionStorage.getItem(KEY) || '{}'); } catch (e) {}
+  current.forEach(function (v, k) { stored[k] = v; });
+  try { sessionStorage.setItem(KEY, JSON.stringify(stored)); } catch (e) {}
+
+  if (!Object.keys(stored).length) return;
+
+  function addParams(search) {
+    var p = new URLSearchParams(search);
+    Object.keys(stored).forEach(function (k) {
+      if (!p.has(k)) p.set(k, stored[k]); // vorhandene Werte nicht überschreiben
+    });
+    return p;
+  }
+
+  function rewrite(a) {
+    if (!a || !a.href) return;
+    var url;
+    try { url = new URL(a.href); } catch (e) { return; }
+    if (url.hostname.indexOf(SHOP_HOST) === -1) return;
+
+    if (url.pathname.indexOf('/discount/') === 0 && url.searchParams.get('redirect')) {
+      // Rabatt-Link: Parameter ins Weiterleitungsziel schreiben
+      var target = new URL(url.searchParams.get('redirect'), url.origin);
+      target.search = addParams(target.search).toString();
+      url.searchParams.set('redirect', target.pathname + target.search);
+    } else {
+      url.search = addParams(url.search).toString();
+    }
+    a.href = url.toString();
+  }
+
+  function rewriteAll() {
+    document.querySelectorAll('a[href*="' + SHOP_HOST + '"]').forEach(rewrite);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rewriteAll);
+  } else {
+    rewriteAll();
+  }
+
+  // Sicherheitsnetz: auch nachträglich eingefügte Buttons beim Klick umschreiben
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (a) rewrite(a);
+  }, true);
+})();
+</script>
 </body>
 </html>
