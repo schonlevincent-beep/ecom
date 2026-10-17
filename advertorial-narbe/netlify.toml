@@ -7,3 +7,19 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=300"
+
+# Lesbare Adressen (die alten Links /, /c83, /c88 funktionieren weiterhin)
+[[redirects]]
+  from = "/narbe-schmerzt"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/narbe-uebersehen"
+  to = "/c83.html"
+  status = 200
+
+[[redirects]]
+  from = "/narbe-zieht"
+  to = "/c88.html"
+  status = 200
