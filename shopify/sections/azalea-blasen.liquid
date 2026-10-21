@@ -1,0 +1,227 @@
+{% comment %}
+  Azaléa – Sales Page für Blasen (Creative 90)
+  In der Produktvorlage "product.blasen" zweimal einfügen:
+  1x über dem Produktbereich (Abschnitt: "Oben"), 1x darunter (Abschnitt: "Unten").
+  Preise, Angebot und Warenkorb kommen weiter aus dem normalen Produktbereich.
+{% endcomment %}
+
+{%- liquid
+  assign teil = section.settings.teil
+  assign rolle_preis = product.price | default: 2790
+  assign pflaster = section.settings.pflaster_pro_rolle | default: 90
+  assign stueck_cent = rolle_preis | divided_by: pflaster
+  assign apo_cent = section.settings.apotheke_cent | default: 184
+  assign faktor = apo_cent | divided_by: stueck_cent
+-%}
+
+<style>
+  .azb { --azb-fg: #1a1a1a; --azb-mut: #6b6b6b; --azb-line: #e7e4df; --azb-bg: #faf8f5; --azb-ok: #2f7a4f; --azb-bad: #b4442f; color: var(--azb-fg); font-family: inherit; }
+  .azb * { box-sizing: border-box; }
+  .azb-wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .azb h2 { font-size: clamp(1.5rem, 3.4vw, 2.2rem); line-height: 1.15; letter-spacing: -.02em; margin: 0 0 .5em; text-wrap: balance; }
+  .azb p { line-height: 1.6; margin: 0; }
+  .azb-sec { padding: clamp(36px, 6vw, 64px) 0; border-top: 1px solid var(--azb-line); }
+
+  .azb-top { background: var(--azb-fg); color: #fff; text-align: center; padding: 12px 16px; font-size: 14px; }
+  .azb-top b { color: #fff; }
+  .azb-hero { padding: 24px 0 8px; text-align: center; }
+  .azb-kicker { display: inline-block; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--azb-mut); margin-bottom: 8px; }
+  .azb-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -.03em; margin: 0 0 10px; text-wrap: balance; }
+  .azb-hero p { color: var(--azb-mut); max-width: 56ch; margin: 0 auto; }
+
+  .azb-vs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+  .azb-card { border: 1px solid var(--azb-line); border-radius: 12px; padding: 20px; background: #fff; }
+  .azb-card.win { border-color: var(--azb-fg); }
+  .azb-card small { display: block; color: var(--azb-mut); font-size: 13px; margin-bottom: 6px; }
+  .azb-price { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; letter-spacing: -.03em; }
+  .azb-card.lose .azb-price { color: var(--azb-bad); text-decoration: line-through; text-decoration-thickness: 2px; }
+  .azb-card.win .azb-price { color: var(--azb-ok); }
+  .azb-per { font-size: 13px; color: var(--azb-mut); }
+
+  .azb-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 15px; }
+  .azb-table th, .azb-table td { padding: 12px 10px; border-bottom: 1px solid var(--azb-line); text-align: center; }
+  .azb-table th:first-child, .azb-table td:first-child { text-align: left; }
+  .azb-table thead th { font-size: 13px; color: var(--azb-mut); font-weight: 500; }
+  .azb-table .us { font-weight: 600; background: var(--azb-bg); }
+  .azb-yes { color: var(--azb-ok); font-weight: 700; }
+  .azb-no { color: var(--azb-bad); }
+
+  .azb-steps, .azb-uses { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; margin-top: 16px; }
+  .azb-step { border: 1px solid var(--azb-line); border-radius: 12px; padding: 18px; background: #fff; }
+  .azb-step b { display: block; font-size: 13px; color: var(--azb-mut); margin-bottom: 6px; }
+  .azb-step strong { display: block; font-size: 17px; margin-bottom: 4px; }
+  .azb-step img { width: 100%; border-radius: 8px; margin-bottom: 10px; aspect-ratio: 4/3; object-fit: cover; }
+  .azb-use { border-radius: 12px; padding: 16px; background: var(--azb-bg); }
+  .azb-use strong { display: block; margin-bottom: 4px; }
+
+  .azb-faq details { border-bottom: 1px solid var(--azb-line); padding: 14px 0; }
+  .azb-faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  .azb-faq summary::after { content: "+"; color: var(--azb-mut); }
+  .azb-faq details[open] summary::after { content: "–"; }
+  .azb-faq p { color: var(--azb-mut); margin-top: 8px; }
+
+  .azb-guar { display: flex; gap: 16px; align-items: center; border: 1px solid var(--azb-line); border-radius: 12px; padding: 20px; background: var(--azb-bg); }
+  .azb-guar b { font-size: 2rem; line-height: 1; }
+  .azb-cta { display: inline-block; margin-top: 20px; background: var(--azb-fg); color: #fff !important; text-decoration: none; padding: 16px 28px; border-radius: 999px; font-weight: 600; }
+  .azb-center { text-align: center; }
+  .azb-note { font-size: 12px; color: var(--azb-mut); margin-top: 10px; }
+
+  .azb-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #fff; border-top: 1px solid var(--azb-line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); display: none; align-items: center; justify-content: space-between; gap: 12px; }
+  .azb-sticky span { font-size: 14px; }
+  .azb-sticky a { background: var(--azb-fg); color: #fff !important; text-decoration: none; padding: 12px 18px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+  @media (max-width: 749px) {
+    .azb-sticky { display: flex; }
+    .azb-vs { gap: 8px; }
+    .azb-card { padding: 14px; }
+    .azb-table { font-size: 14px; }
+  }
+</style>
+
+<div class="azb">
+{%- if teil == 'oben' -%}
+  {%- if section.settings.top_text != blank -%}
+    <div class="azb-top">{{ section.settings.top_text }}</div>
+  {%- endif -%}
+  <div class="azb-wrap azb-hero">
+    <span class="azb-kicker">{{ section.settings.kicker }}</span>
+    <h1>{{ section.settings.headline }}</h1>
+    <p>{{ section.settings.subline }}</p>
+    <div class="azb-vs">
+      <div class="azb-card lose">
+        <small>{{ section.settings.apotheke_label }}</small>
+        <div class="azb-price">{{ apo_cent | money }}</div>
+        <div class="azb-per">pro Pflaster</div>
+      </div>
+      <div class="azb-card win">
+        <small>Azaléa Hydrokolloid-Rolle</small>
+        <div class="azb-price">ab {{ stueck_cent | money }}</div>
+        <div class="azb-per">pro Pflaster · ca. {{ pflaster }} Stück pro Rolle</div>
+      </div>
+    </div>
+  </div>
+
+{%- else -%}
+  <section class="azb-sec">
+    <div class="azb-wrap">
+      <h2>Gleiches Prinzip. Rund {{ faktor }}× günstiger.</h2>
+      <p>Blasenpflaster aus der Apotheke bestehen aus Hydrokolloid: einer Schicht, die Wundflüssigkeit aufnimmt und ein feuchtes Wundmilieu hält, plus einer dünnen, wasserfesten Folie. Unsere Rolle ist genau so aufgebaut. Der Unterschied: Du schneidest dir jedes Pflaster selbst in der Größe zu, die du gerade brauchst.</p>
+      <div style="overflow-x:auto">
+        <table class="azb-table">
+          <thead><tr><th></th><th class="us">Azaléa Rolle</th><th>Einzelpflaster</th></tr></thead>
+          <tbody>
+            <tr><td>Preis pro Pflaster</td><td class="us">ab {{ stueck_cent | money }}</td><td>ca. {{ apo_cent | money }}</td></tr>
+            <tr><td>Material Hydrokolloid</td><td class="us azb-yes">✓</td><td class="azb-yes">✓</td></tr>
+            <tr><td>Größe frei wählbar</td><td class="us azb-yes">✓</td><td class="azb-no">✗</td></tr>
+            <tr><td>Wasserfest, auch beim Duschen</td><td class="us azb-yes">✓</td><td class="azb-yes">✓</td></tr>
+            <tr><td>Kleiner Zeh bis ganze Ferse aus einer Rolle</td><td class="us azb-yes">✓</td><td class="azb-no">✗</td></tr>
+            <tr><td>Nie wieder „falsche Größe aufgebraucht“</td><td class="us azb-yes">✓</td><td class="azb-no">✗</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="azb-note">Vergleichspreis: typischer Stückpreis von Marken-Blasenpflastern im Handel, Stand {{ 'now' | date: '%m/%Y' }}.</p>
+    </div>
+  </section>
+
+  <section class="azb-sec">
+    <div class="azb-wrap">
+      <h2>So einfach geht’s</h2>
+      <div class="azb-steps">
+        {%- for i in (1..3) -%}
+          {%- liquid
+            case i
+              when 1
+                assign t = 'Zuschneiden'
+                assign d = 'Ein Stück passend zur Blase abschneiden, mit etwas Rand rundherum. Ecken leicht abrunden, dann hält es besser.'
+                assign img = section.settings.bild_1
+              when 2
+                assign t = 'Aufkleben'
+                assign d = 'Haut sauber und trocken machen, Folie abziehen und glatt andrücken. Kurz mit der Hand anwärmen.'
+                assign img = section.settings.bild_2
+              when 3
+                assign t = 'Drauflassen'
+                assign d = 'Das Pflaster bleibt drauf, bis es sich von selbst löst. Wird es weißlich, arbeitet das Hydrokolloid.'
+                assign img = section.settings.bild_3
+            endcase
+          -%}
+          <div class="azb-step">
+            {%- if img != blank -%}{{ img | image_url: width: 600 | image_tag: loading: 'lazy', alt: t }}{%- endif -%}
+            <b>Schritt {{ i }}</b>
+            <strong>{{ t }}</strong>
+            <p>{{ d }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="azb-sec">
+    <div class="azb-wrap">
+      <h2>Eine Rolle für jede Blase</h2>
+      <div class="azb-uses">
+        <div class="azb-use"><strong>Neue Schuhe</strong><p>Wenn der Schuh an der Ferse reibt, groß zuschneiden und fertig.</p></div>
+        <div class="azb-use"><strong>Wandern &amp; Laufen</strong><p>Hält bei Bewegung und Schweiß. Kleine Rolle passt in jede Tasche.</p></div>
+        <div class="azb-use"><strong>Büro &amp; Alltag</strong><p>Dünn und hautfarben, unter Socken und Strumpfhose kaum zu sehen.</p></div>
+        <div class="azb-use"><strong>Kleine Zehen</strong><p>Schmale Streifen für Stellen, an die kein Standardpflaster passt.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="azb-sec">
+    <div class="azb-wrap azb-faq">
+      <h2>Häufige Fragen</h2>
+      <details><summary>Wie viele Pflaster bekomme ich aus einer Rolle?</summary><p>Je nach Größe rund {{ pflaster }} Stück. Für den kleinen Zeh brauchst du weniger, für die ganze Ferse mehr.</p></details>
+      <details><summary>Wie lange bleibt ein Pflaster drauf?</summary><p>So lange, bis es sich von selbst löst, meist einige Tage. Nicht vorher abreißen, sonst löst sich die Haut mit.</p></details>
+      <details><summary>Kann ich damit duschen?</summary><p>Ja. Die Folie ist wasserfest. Danach nur vorsichtig trocken tupfen.</p></details>
+      <details><summary>Ist das dasselbe wie ein Markenpflaster?</summary><p>Das Prinzip ist gleich: Hydrokolloid unter einer wasserfesten Folie. Du bekommst es nur als Rolle statt einzeln verpackt.</p></details>
+      <details><summary>Wann sollte ich es nicht verwenden?</summary><p>Nicht auf infizierte, stark blutende oder tiefe Wunden. Bei Diabetes oder Durchblutungsstörungen an den Füßen vorher ärztlich abklären.</p></details>
+    </div>
+  </section>
+
+  <section class="azb-sec">
+    <div class="azb-wrap azb-center">
+      <div class="azb-guar" style="text-align:left">
+        <b>30</b>
+        <p><strong>Tage Geld-zurück-Garantie.</strong> Probier die Rolle aus. Wenn sie dich nicht überzeugt, bekommst du dein Geld zurück.</p>
+      </div>
+      <a class="azb-cta" href="#MainContent" data-azb-cta>{{ section.settings.cta }}</a>
+    </div>
+  </section>
+
+  <div class="azb-sticky" aria-hidden="false">
+    <span>Hydrokolloid-Rolle · ab {{ stueck_cent | money }} / Pflaster</span>
+    <a href="#MainContent" data-azb-cta>{{ section.settings.cta_kurz }}</a>
+  </div>
+  <script>
+    // Kauf-Knöpfe springen zum Produktbereich (Warenkorb-Button) der Seite
+    document.querySelectorAll('[data-azb-cta]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var t = document.querySelector('form[action*="/cart/add"]') || document.getElementById('MainContent');
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      });
+    });
+  </script>
+{%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Azaléa Blasen-Seite",
+  "settings": [
+    { "type": "select", "id": "teil", "label": "Abschnitt", "default": "unten",
+      "options": [ { "value": "oben", "label": "Oben (über dem Produkt)" }, { "value": "unten", "label": "Unten (unter dem Produkt)" } ] },
+    { "type": "text", "id": "top_text", "label": "Hinweis-Leiste ganz oben", "default": "2+1 gratis · Kostenloser Versand · 30 Tage Geld zurück" },
+    { "type": "text", "id": "kicker", "label": "Überzeile", "default": "Das Blasenpflaster-Kartell" },
+    { "type": "text", "id": "headline", "label": "Überschrift", "default": "Gleiches Material. Ein Bruchteil vom Preis." },
+    { "type": "textarea", "id": "subline", "label": "Unterzeile", "default": "Hydrokolloid-Pflaster als Rolle: zuschneiden, aufkleben, fertig. Für die Blase am kleinen Zeh genauso wie für die ganze Ferse." },
+    { "type": "text", "id": "apotheke_label", "label": "Beschriftung Vergleich", "default": "Einzelne Blasenpflaster im Handel" },
+    { "type": "number", "id": "apotheke_cent", "label": "Vergleichspreis pro Pflaster (in Cent)", "default": 184 },
+    { "type": "number", "id": "pflaster_pro_rolle", "label": "Pflaster pro Rolle (ca.)", "default": 90 },
+    { "type": "image_picker", "id": "bild_1", "label": "Bild Schritt 1 (Zuschneiden)" },
+    { "type": "image_picker", "id": "bild_2", "label": "Bild Schritt 2 (Aufkleben)" },
+    { "type": "image_picker", "id": "bild_3", "label": "Bild Schritt 3 (Drauflassen)" },
+    { "type": "text", "id": "cta", "label": "Text Kauf-Knopf", "default": "Jetzt 2+1 sichern" },
+    { "type": "text", "id": "cta_kurz", "label": "Text Kauf-Knopf (Handy unten)", "default": "2+1 sichern" }
+  ],
+  "presets": [ { "name": "Azaléa Blasen-Seite" } ]
+}
+{% endschema %}
