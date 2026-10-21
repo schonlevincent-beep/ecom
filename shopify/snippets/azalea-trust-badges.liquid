@@ -1,0 +1,28 @@
+{% comment %}
+  Azaléa – Bezahl-Icons + Vertrauens-Häkchen
+  Einbinden im Produktbereich über einen Block "Benutzerdefiniertes Liquid" mit:
+  {% render 'azalea-trust-badges' %}
+{% endcomment %}
+<div class="azt">
+  <style>
+    .azt { font-family: Arial, Helvetica, sans-serif; color: #111; margin: 12px 0; }
+    .azt-pay { border: 2px dashed #111; padding: 12px; text-align: center; }
+    .azt-pay b { display: block; font-size: 14px; font-weight: 900; margin-bottom: 8px; }
+    .azt-icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+    .azt-icons svg { height: 26px; width: auto; }
+    .azt-checks { list-style: none; padding: 0; margin: 12px 0 0; font-weight: 700; font-size: 16px; }
+    .azt-checks li { padding: 3px 0; }
+    .azt-checks li::before { content: "✔ "; color: #12823b; }
+  </style>
+  <div class="azt-pay">
+    <b>Sicher bezahlen mit PayPal, Apple Pay, Klarna &amp; Karte</b>
+    <div class="azt-icons">
+      {%- for type in shop.enabled_payment_types -%}{{ type | payment_type_svg_tag }}{%- endfor -%}
+    </div>
+  </div>
+  <ul class="azt-checks">
+    <li>Versand in 1–3 Werktagen</li>
+    <li>30 Tage Geld-zurück-Garantie</li>
+    <li>Über 1.000 zufriedene Kund:innen</li>
+  </ul>
+</div>
