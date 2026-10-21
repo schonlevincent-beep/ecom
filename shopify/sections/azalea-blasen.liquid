@@ -7,9 +7,8 @@
 
 {%- liquid
   assign teil = section.settings.teil
-  assign rolle_preis = product.price | default: 2790
   assign pflaster = section.settings.pflaster_pro_rolle | default: 90
-  assign stueck_cent = rolle_preis | divided_by: pflaster
+  assign stueck_cent = section.settings.stueck_cent | default: 32
   assign apo_cent = section.settings.apotheke_cent | default: 184
   assign faktor = apo_cent | divided_by: stueck_cent
 -%}
@@ -249,6 +248,7 @@
     { "type": "text", "id": "apotheke_label", "label": "Beschriftung Vergleich", "default": "Apotheke / Drogerie" },
     { "type": "number", "id": "apotheke_cent", "label": "Vergleichspreis pro Pflaster (in Cent)", "default": 184 },
     { "type": "number", "id": "pflaster_pro_rolle", "label": "Pflaster pro Rolle (ca.)", "default": 90 },
+    { "type": "number", "id": "stueck_cent", "label": "Euer Preis pro Pflaster (in Cent)", "default": 32 },
     { "type": "image_picker", "id": "bild_1", "label": "Bild Schritt 1 (Zuschneiden)" },
     { "type": "image_picker", "id": "bild_2", "label": "Bild Schritt 2 (Aufkleben)" },
     { "type": "image_picker", "id": "bild_3", "label": "Bild Schritt 3 (Drauflassen)" },
